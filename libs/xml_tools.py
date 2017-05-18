@@ -10,9 +10,6 @@ import os
 import xml.etree.cElementTree as et
 from utils import get_filename
 
-# :OUTPUT_DIR .txt/.ann 文件保存路径
-OUTPUT_DIR = 'negative_txt'
-
 
 def read_xml(xml_file):
     # 读取xml
@@ -20,27 +17,34 @@ def read_xml(xml_file):
     xml_tree = et.ElementTree(file=xml_file)
     for child in xml_tree.getroot():
         if child.tag == 'name':
-            xml_dict['name'] = child.text.encode('utf-8').replace('\n', '').strip()
+            xml_dict['name'] = xml_file[:-4]
+            if child.text is not None:
+                xml_dict['name'] = child.text.encode('utf-8').replace('\n', '').strip()
         if child.tag == 'org':
-            xml_dict['org'] = child.text.encode('utf-8').replace('\n', '').strip()
+            xml_dict['org'] = ''
+            if child.text is not None:
+                xml_dict['org'] = child.text.encode('utf-8').replace('\n', '').strip()
         if child.tag == 'resume':
-            xml_dict['resume'] = child.text.encode('utf-8').replace('\n', '').strip()
-            xml_dict['lines'] = child.text.encode('utf-8').split('\n')
+            xml_dict['resume'] = ''
+            xml_dict['lines'] = []
+            if child.text is not None:
+                xml_dict['resume'] = child.text.encode('utf-8').replace('\n', '').strip()
+                xml_dict['lines'] = child.text.encode('utf-8').split('\n')
     return xml_dict
 
 
-def xml2txt(xml_file):
-    if not os.path.exists(OUTPUT_DIR):
-        os.mkdir(OUTPUT_DIR)
+def xml2txt(xml_file, output_dir):
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
     # 转换xml为txt文件，并生产空.ann文件
     xml_dict = read_xml(xml_file)
     # 空ann文件
-    ann_file = '{0}/{1}.ann'.format(OUTPUT_DIR, get_filename(xml_file))
+    ann_file = '{0}/{1}.ann'.format(output_dir, get_filename(xml_file))
     with open(ann_file, 'w') as f:
         f.write('')
 
     # 写txt文件
-    txt_file = '{0}/{1}.txt'.format(OUTPUT_DIR, get_filename(xml_file))
+    txt_file = '{0}/{1}.txt'.format(output_dir, get_filename(xml_file))
     with open(txt_file, 'w') as f:
         f.write('')
     with open(txt_file, 'a+') as f:

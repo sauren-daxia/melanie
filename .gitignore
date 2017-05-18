@@ -1,14 +1,9 @@
 # local
 data
 target
-download
-*.csv
-*.txt
-*.xml
-negative_scale
-test_scale
-resume_scale
-resume.model
+
+# log
+log
 
 # node
 node_modules
