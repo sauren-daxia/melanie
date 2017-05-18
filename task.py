@@ -14,8 +14,8 @@ from libs import xml_tools
 from libs import svm_tools
 
 #: 默认输出路径
-DEFAULT_OUTPUT_DIR = 'data/out'
-DEFAULT_OUTPUT_FILE = 'data/out.scale'
+DEFAULT_OUTPUT_DIR = 'data/svm/out'
+DEFAULT_OUTPUT_FILE = 'data/svm/out/train.scale'
 
 parser = argparse.ArgumentParser(
     description='批处理任务',
@@ -40,7 +40,7 @@ parser.add_argument(
 parser.add_argument(
     '-o',
     '--out',
-    help='输出文件地址(默认文件夹: %(default)s)', default=DEFAULT_OUTPUT_DIR
+    help='输出文件夹地址(默认: %(default)s)', default=DEFAULT_OUTPUT_DIR
 )
 
 parser.add_argument(
@@ -50,9 +50,9 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    '-s',
-    '--scale',
-    help='输出scale文件(默认: %(default)s)', default=DEFAULT_OUTPUT_FILE
+    '-f',
+    '--file',
+    help='输出文件(默认: %(default)s)', default=DEFAULT_OUTPUT_FILE
 )
 
 parser.add_argument(
@@ -62,14 +62,24 @@ parser.add_argument(
     help='libsvm tag(默认: %(default)d)', default=1
 )
 
+parser.add_argument(
+    '-l',
+    '--list',
+    help='file list', default=''
+)
+
+parser.add_argument(
+    '-r',
+    '--result',
+    help='svm predict output file', default='data/svm/out/result'
+)
+
 SYS_ARGS = parser.parse_args()
 logger = log.get_logger('task')
 
 
 def xml2txt():
     """将xml文件转换为txt文件"""
-    if not os.path.exists(SYS_ARGS.out):
-        os.makedirs(SYS_ARGS.out)
     logger.info('start: xml2txt; xml: {0}; out: {1}'.format(SYS_ARGS.xml, SYS_ARGS.out))
     total_count = 0
     sucess_count = 0
@@ -89,10 +99,12 @@ def xml2txt():
 
 def txt2svm():
     """将txt文件转换为libsvm scale文件"""
-    logger.info('start: txt2svm; txt: {0}; scale: {1}'.format(SYS_ARGS.txt, SYS_ARGS.scale))
+    logger.info('start: txt2svm; txt: {0}; scale: {1}'.format(SYS_ARGS.txt, SYS_ARGS.file))
     total_count = 0
     sucess_count = 0
     scale_str = ''
+    list_file = SYS_ARGS.file.replace('scale', 'list')
+    file_str = ''
     for root, dirs, files in os.walk(SYS_ARGS.txt):
         for f in files:
             if f.find('.txt') == -1:
@@ -103,20 +115,49 @@ def txt2svm():
                 line = svm_tools.txt2libsvm(txt_file, SYS_ARGS.tag)
                 if not scale_str == '':
                     scale_str += '\n'
+                    file_str += '\n'
                 scale_str += line
+                file_str += txt_file
                 sucess_count += 1
             except Exception as e:
                 logger.error(txt_file + ': ' + repr(e))
-    with open(SYS_ARGS.scale, 'w') as f:
+    with open(SYS_ARGS.file, 'w') as f:
         f.write(scale_str)
+    with open(list_file, 'w') as f:
+        f.write(file_str)
     logger.info('end: txt2svm; sucess: {0}/{1}'.format(sucess_count, total_count))
 
 
+def predict():
+    logger.info('start: predict; list: {0}; result: {1}; output: {2}'.format(SYS_ARGS.list, SYS_ARGS.result, SYS_ARGS.file))
+
+    with open(SYS_ARGS.list, 'r') as f:
+        file_list = f.readlines()
+    with open(SYS_ARGS.result, 'r') as f:
+        resultes = f.readlines()
+    if os.path.exists(SYS_ARGS.file):
+        os.system('rm ' + SYS_ARGS.file)
+    total_count = len(file_list)
+    sucess_count = 0
+    with open(SYS_ARGS.file, 'a+') as f:
+        for i in range(total_count):
+            try:
+                f.write('{0},{1}\n'.format(file_list[i].strip(), resultes[i].strip()))
+                sucess_count += 1
+            except Exception as e:
+                logger.error(str(i) + ': ' + file_list[i] + ': ' + repr(e))
+    logger.info('end: predict; sucess: {0}/{1}'.format(sucess_count, total_count))
+
+
 def main():
+    if not os.path.exists(SYS_ARGS.out):
+        os.makedirs(SYS_ARGS.out)
     if not SYS_ARGS.xml == '':
         xml2txt()
     if not SYS_ARGS.txt == '':
         txt2svm()
+    if not SYS_ARGS.list == '':
+        predict()
 
 
 if __name__ == '__main__':

@@ -11,3 +11,15 @@
   - 数据集: data/svm/positive|negative/txt
   - 函数: lib/svm_tools.py: txt2libsvm
   - 运行: `python task.py -t {txt path} -o {output path}`
+
+## libsvm
+
+- train
+```
+svm-train {scale} {model}
+```
+
+- predict
+```
+svm-predict {test} {model} {output}
+```

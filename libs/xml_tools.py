@@ -8,7 +8,7 @@
 """
 import os
 import xml.etree.cElementTree as et
-from utils import get_filename
+from utils import get_fullname
 
 
 def read_xml(xml_file):
@@ -40,12 +40,12 @@ def xml2txt(xml_file, output_dir, if_ann=False):
     xml_dict = read_xml(xml_file)
     # 空ann文件
     if if_ann:
-        ann_file = '{0}/{1}.ann'.format(output_dir, get_filename(xml_file))
+        ann_file = '{0}/{1}.ann'.format(output_dir, get_fullname(xml_file))
         with open(ann_file, 'w') as f:
             f.write('')
 
     # 写txt文件
-    txt_file = '{0}/{1}.txt'.format(output_dir, get_filename(xml_file))
+    txt_file = '{0}/{1}.txt'.format(output_dir, get_fullname(xml_file))
     with open(txt_file, 'w') as f:
         f.write('')
     with open(txt_file, 'a+') as f:
