@@ -1,12 +1,15 @@
 # local
 data
-target
+log
 
-# log
+# crawler
+data
+data-0
 log
 
 # node
 node_modules
+.eslintrc.js
 
 # python
 *.pyc

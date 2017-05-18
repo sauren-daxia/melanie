@@ -1,0 +1,38 @@
+{
+  "name": "melanie",
+  "version": "1.0.0",
+  "description": "resume crawler",
+  "main": "crawler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uluyan/melanie.git"
+  },
+  "author": "xy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uluyan/melanie/issues"
+  },
+  "homepage": "https://github.com/uluyan/melanie#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1"
+  },
+  "dependencies": {
+    "async": "^2.4.0",
+    "cheerio": "^0.22.0",
+    "iconv-lite": "^0.4.17",
+    "log4js": "^1.1.1",
+    "request": "^2.81.0",
+    "xml2js": "^0.4.17"
+  },
+  "keywords": [
+    "crawler",
+    "ant"
+  ]
+}
