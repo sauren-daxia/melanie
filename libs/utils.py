@@ -10,7 +10,7 @@ import sys
 
 def get_filename(full_name):
     # 读取文件名，去除文件夹路径和后缀
-    return full_name.split('/')[-1].split('.')[0]
+    return '.'.join(full_name.split('/')[-1].split('.')[:-1])
 
 
 if __name__ == '__main__':

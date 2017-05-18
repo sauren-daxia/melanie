@@ -33,15 +33,16 @@ def read_xml(xml_file):
     return xml_dict
 
 
-def xml2txt(xml_file, output_dir):
+def xml2txt(xml_file, output_dir, if_ann=False):
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     # 转换xml为txt文件，并生产空.ann文件
     xml_dict = read_xml(xml_file)
     # 空ann文件
-    ann_file = '{0}/{1}.ann'.format(output_dir, get_filename(xml_file))
-    with open(ann_file, 'w') as f:
-        f.write('')
+    if if_ann:
+        ann_file = '{0}/{1}.ann'.format(output_dir, get_filename(xml_file))
+        with open(ann_file, 'w') as f:
+            f.write('')
 
     # 写txt文件
     txt_file = '{0}/{1}.txt'.format(output_dir, get_filename(xml_file))
