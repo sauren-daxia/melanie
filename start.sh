@@ -20,7 +20,7 @@ echo '---- Predict ----'
 python task.py -x ${workspace}test/xml/ -o ${workspace}test/txt
 python task.py -t ${workspace}test/txt/ -f ${workspace}out/test.scale
 svm-predict ${workspace}out/test.scale ${workspace}out/train.model ${workspace}out/result
-python task.py -l ${workspace}out/test.list -r ${workspace}out/result -f ${workspace}out/test_result
+python task.py -l ${workspace}out/test.list -r ${workspace}out/result -f ${workspace}out/test_predict.csv
 # tearDown
 rm ${workspace}out/positive.scale
 rm ${workspace}out/positive.list

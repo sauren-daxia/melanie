@@ -74,6 +74,12 @@ parser.add_argument(
     help='svm predict output file', default='data/svm/out/result'
 )
 
+parser.add_argument(
+    '-p',
+    '--map',
+    help='获取词频文件地址', default=''
+)
+
 SYS_ARGS = parser.parse_args()
 logger = log.get_logger('task')
 
@@ -129,8 +135,8 @@ def txt2svm():
 
 
 def predict():
+    """输出预测结果"""
     logger.info('start: predict; list: {0}; result: {1}; output: {2}'.format(SYS_ARGS.list, SYS_ARGS.result, SYS_ARGS.file))
-
     with open(SYS_ARGS.list, 'r') as f:
         file_list = f.readlines()
     with open(SYS_ARGS.result, 'r') as f:
@@ -149,6 +155,27 @@ def predict():
     logger.info('end: predict; sucess: {0}/{1}'.format(sucess_count, total_count))
 
 
+def xml2map():
+    """获取词频"""
+    logger.info('start: xml2map; map: {0}; output: {1}'.format(SYS_ARGS.list,SYS_ARGS.file))
+    total_count = 0
+    sucess_count = 0
+    map_list = []
+    for root, dirs, files in os.walk(SYS_ARGS.map, topdown=True):
+        for f in files:
+            if f.find('.xml') == -1:
+                continue
+            total_count += 1
+            xml_file = os.path.join(root, f)
+            try:
+                map_list = xml_tools.xml2map(xml_file, map_list)
+                sucess_count += 1
+            except Exception as e:
+                print xml_file + repr(e)
+    xml_tools.output(map_list, SYS_ARGS.file)
+    logger.info('end: xml2map; sucess: {0}/{1}'.format(sucess_count, total_count))
+
+
 def main():
     if not os.path.exists(SYS_ARGS.out):
         os.makedirs(SYS_ARGS.out)
@@ -158,6 +185,8 @@ def main():
         txt2svm()
     if not SYS_ARGS.list == '':
         predict()
+    if not SYS_ARGS.map == '':
+        xml2map()
 
 
 if __name__ == '__main__':

@@ -7,6 +7,7 @@
     :xml2txt 转换xml为txt文件，并生产空.ann文件
 """
 import os
+import jieba
 import xml.etree.cElementTree as et
 from utils import get_fullname
 
@@ -59,3 +60,44 @@ def xml2txt(xml_file, output_dir, if_ann=False):
             if not line_num == resume_length - 2:
                 line += '\n'
             f.write(line)
+
+
+def list2map(word_list, map_list=[]):
+    """
+     词汇列表 => 词频映射
+    """
+    # 去重
+    word_list = [word for word in set(word_list)]
+    for word in word_list:
+        word = word.encode('utf-8')
+        if word.strip() == '' or word == ',':
+            continue
+        is_exist = False
+        for map in map_list:
+            if map['key'] == word:
+                map['value'] += 1
+                is_exist = True
+                break
+        if not is_exist:
+            map_list.append({'key': word, 'value': 1})
+    return sorted(map_list, key=lambda d: d['value'], reverse=True)
+
+
+def output(map_list, output_path):
+    with open(output_path, 'w') as fout:
+        fout.write('')
+    with open(output_path, 'a+') as fout:
+        for word in map_list:
+            fout.write('{0},{1}\n'.format(word['key'], word['value']))
+
+
+def xml2map(xml_file, map_list):
+    """统计词频"""
+    xml_tree = et.ElementTree(file=xml_file)
+    for child in xml_tree.getroot():
+        if child.tag == 'resume':
+            text = child.text.encode('utf-8').replace('\n', '')
+    # word_list = jieba.cut(text)
+    word_list = jieba.cut(text, cut_all=True)
+    # word_list = jieba.cut_for_search(text)
+    return list2map(word_list, map_list)
