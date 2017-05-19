@@ -2,8 +2,7 @@
 """
     提取特征，组织成libsvm数据格式
 """
-import sys
-from get_feature import get_feature_from_txt
+import get_feature
 
 
 def parse_libsvm(feature_list, tag=1):
@@ -18,8 +17,8 @@ def parse_libsvm(feature_list, tag=1):
 
 
 def txt2libsvm(txt_file, tag=1):
-    return parse_libsvm(get_feature_from_txt(txt_file), tag)
+    return parse_libsvm(get_feature.get_feature_from_txt(txt_file), tag)
 
 
-if __name__ == '__main__':
-    print txt2libsvm(sys.argv[1])
+def xml2libsvm(xml_file, tag=1):
+    return parse_libsvm(get_feature.get_feature_from_xml(xml_file), tag)

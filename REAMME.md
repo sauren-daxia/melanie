@@ -34,3 +34,8 @@ svm-train {scale} {model}
 ```
 svm-predict {test} {model} {output}
 ```
+
+## crawler
+
+- 运行 `node init.js`
+

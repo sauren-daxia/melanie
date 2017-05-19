@@ -15,7 +15,7 @@ def get_filename(full_name):
 
 def get_fullname(full_name):
     # 读取文件名，去除文件夹路径和后缀
-    return '.'.join(full_name.replace('/', '').split('.')[:-1])
+    return '.'.join(full_name.replace('/', '_').split('.')[:-1])
 
 
 if __name__ == '__main__':

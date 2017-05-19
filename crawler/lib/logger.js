@@ -7,7 +7,7 @@ const logLevelFilter = {
     type: 'console',
   },
   level: 'INFO',
-  //level: 'DEBUG',
+  // level: 'DEBUG',
 };
 
 const dateFile = {

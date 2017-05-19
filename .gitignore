@@ -5,7 +5,10 @@ log
 # crawler
 data
 data-0
+download
 log
+module
+temp
 
 # node
 node_modules
