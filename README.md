@@ -39,3 +39,13 @@ svm-predict {test} {model} {output}
 
 - 运行 `node init.js`
 
+- TODO update pattern rules
+
+- 设计
+
+csvQueue (limit: 1) -- domainList
+|
+`--> domainQueue (limit: 20) -- linkList
+       |
+       `--> linkQueue (limit: 1)
+               

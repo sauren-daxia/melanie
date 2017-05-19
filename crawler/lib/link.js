@@ -7,6 +7,7 @@ class Link {
     this.depth = 0;
     this.charset = 'utf-8';
     this.href = '';
+    this.times = 0;
 
     if (obj.depth) {
       this.depth = obj.depth;

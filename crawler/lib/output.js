@@ -18,6 +18,10 @@ function output(items, callback) {
     return callback(false);
   }
 
+  if (!items.resume) {
+      return callback(false);
+  }
+
   items.resume = items.resume.toString().trim();
 
   mkdirs(path);
