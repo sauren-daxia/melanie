@@ -32,7 +32,7 @@ function output(items, callback) {
     xmlStr = builder.buildObject(items);
     xmlStr = xmlStr.toString();
   } catch (e) {
-    logger.error(`[Xml Build Error] ${items.href}`);
+    logger.error(`[Xml Build Error] ${items.org};${items.name};${items.href};${items.url}`);
     return callback(false);
   }
 

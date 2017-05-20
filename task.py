@@ -118,7 +118,7 @@ def txt2svm():
             total_count += 1
             txt_file = os.path.join(root, f)
             try:
-                line = svm_tools.txt2libsvm(txt_file, SYS_ARGS.tag)
+                line = svm_tools.convert2libsvm(txt_file, SYS_ARGS.tag)
                 if not scale_str == '':
                     scale_str += '\n'
                     file_str += '\n'

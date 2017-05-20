@@ -1,3 +1,8 @@
+/**
+ * @author: xiaoyu.bai
+ * @email: xiaoyu.bai@yitu-inc.com
+ * @date: 2017-05-20
+ */
 const url = require('url');
 const cheerio = require('cheerio');
 
@@ -38,13 +43,14 @@ function linkExt({ html, seed, set }, callback) {
     if (!href) {
       href = '';
     }
-    href = href.replace(/\s/g, '');
-    if (href.match(/RSS|下载/)) {
+    href = href.replace(/\s/g, '').replace(/：/g, ':');
+    href = href.split(':')[0];
+    if (href.match(/RSS|下载|网站地图|联系我们/)) {
       continue;
     }
 
     let link = linkeq.attr('href');
-    if (!link || link.match(/download|javascript/g) || link === '/') {
+    if (!link || link.match(/download|javascript|ico|css/g) || link === '/') {
       continue;
     }
     link = url.resolve(seed, link);

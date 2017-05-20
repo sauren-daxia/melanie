@@ -1,3 +1,52 @@
+## Files
+
+备注： * 代表不同步文件/文件夹
+```
+`-- melanie
+  +-- crawler  // 爬虫
+  | +-- *data
+  | | +-- csv_0  // 测试csv
+  | | +-- csv_1  // 待下载csv
+  | | +-- csv_2  // 非下载csv
+  | | +-- negative  // 负例
+  | | `-- webs.js  // 部委级任务
+  | +-- *download  // 下载数据
+  | +-- libs
+  | | +-- htmlParser.js
+  | | +-- link.js
+  | | +-- linkExt.js
+  | | +-- logger.js
+  | | +-- output.js
+  | | `-- tools.js
+  | +-- *logs
+  | +-- *module  // python tools and svm train.model
+  | | +-- check.py
+  | | +-- feature.py
+  | | +-- svm_tools.py
+  | | +-- train.model
+  | | `-- utils.py
+  | +-- test
+  | | +-- htmlParserTest.js
+  | | `-- linkExtTest.js
+  | +-- *.eslintrc.js
+  | +-- init.js  // 爬虫主程序
+  | +-- package.json
+  | `-- start.sh  // 入口程序
+  +-- *data
+  +-- libs
+  +-- *logs
+  +-- .gitignore
+  +-- README.md
+  +-- start.sh  // 入口程序
+  `-- task.py
+```
+
+## Dependencies
+- libsvm
+- node 7.10.0
+- python 2.7.13
+- mocha (test)
+
 ## Tasks
 
 - xml2txt

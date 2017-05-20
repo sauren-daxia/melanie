@@ -1,10 +1,6 @@
 # -*- coding: utf8 -*-
 """
     xml工具
-    ~~~~~~~
-
-    :read_xml 读取xml
-    :xml2txt 转换xml为txt文件，并生产空.ann文件
 """
 import os
 import jieba
@@ -13,7 +9,7 @@ from utils import get_fullname
 
 
 def read_xml(xml_file):
-    # 读取xml
+    """读取xml 转换为字典"""
     xml_dict = {}
     xml_tree = et.ElementTree(file=xml_file)
     for child in xml_tree.getroot():
@@ -35,11 +31,11 @@ def read_xml(xml_file):
 
 
 def xml2txt(xml_file, output_dir, if_ann=False):
+    """转换xml为txt文件，创建空.ann文件(可选)"""
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
-    # 转换xml为txt文件，并生产空.ann文件
     xml_dict = read_xml(xml_file)
-    # 空ann文件
+    # ann文件
     if if_ann:
         ann_file = '{0}/{1}.ann'.format(output_dir, get_fullname(xml_file))
         with open(ann_file, 'w') as f:
@@ -63,11 +59,9 @@ def xml2txt(xml_file, output_dir, if_ann=False):
 
 
 def list2map(word_list, map_list=[]):
-    """
-     词汇列表 => 词频映射
-    """
+    """词汇列表 => 词频映射"""
     # 去重
-    word_list = [word for word in set(word_list)]
+    word_list = [word for word in set(word_list)] 
     for word in word_list:
         word = word.encode('utf-8')
         if word.strip() == '' or word == ',':
@@ -84,6 +78,7 @@ def list2map(word_list, map_list=[]):
 
 
 def output(map_list, output_path):
+    """输出词频表"""
     with open(output_path, 'w') as fout:
         fout.write('')
     with open(output_path, 'a+') as fout:
@@ -97,7 +92,5 @@ def xml2map(xml_file, map_list):
     for child in xml_tree.getroot():
         if child.tag == 'resume':
             text = child.text.encode('utf-8').replace('\n', '')
-    # word_list = jieba.cut(text)
     word_list = jieba.cut(text, cut_all=True)
-    # word_list = jieba.cut_for_search(text)
     return list2map(word_list, map_list)

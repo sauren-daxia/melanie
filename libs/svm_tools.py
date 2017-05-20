@@ -1,12 +1,12 @@
 # -*- coding: utf8 -*-
 """
-    提取特征，组织成libsvm数据格式
+    libsvm 工具模块
 """
-import get_feature
+import utils
 
 
 def parse_libsvm(feature_list, tag=1):
-    # 将特征数组组织成libsvm数据格式
+    """将特征数组组织成libsvm数据格式"""
     libsvm_str = ''
     if tag > 0:
         libsvm_str += '+'
@@ -16,9 +16,9 @@ def parse_libsvm(feature_list, tag=1):
     return libsvm_str
 
 
-def txt2libsvm(txt_file, tag=1):
-    return parse_libsvm(get_feature.get_feature_from_txt(txt_file), tag)
-
-
-def xml2libsvm(xml_file, tag=1):
-    return parse_libsvm(get_feature.get_feature_from_xml(xml_file), tag)
+def convert2libsvm(file_name, tag=1):
+    """获取文件的特征向量并转换为libsvm数据格式"""
+    if utils.get_ext(file_name) == 'xml':
+        return parse_libsvm(utils.get_feature_from_xml(file_name), tag)
+    else:
+        return parse_libsvm(utils.get_feature_from_txt(file_name), tag)

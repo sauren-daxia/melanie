@@ -1,15 +1,12 @@
 # local
 data
-log
+logs
 
 # crawler
 crawler/data
-crawler/data-0
 crawler/download
-crawler/log
+crawler/logs
 crawler/module
-crawler/temp
-crawler/test_download
 crawler/logs
 
 # node
@@ -18,4 +15,3 @@ node_modules
 
 # python
 *.pyc
-
