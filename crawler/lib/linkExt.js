@@ -57,8 +57,8 @@ function linkExt({ html, seed, set }, callback) {
       continue;
     }
     set.add(link);
-    callback(null, { link, href });
     length++;
+    callback(null, { link, href });
   }
 
   return length;

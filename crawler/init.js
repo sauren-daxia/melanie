@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const readline = require('readline');
 const async = require('async');
 const request = require('request');
@@ -11,14 +12,14 @@ const linkExt = require('./lib/linkExt');
 const clean = require('./lib/clean');
 const configs = require('./configs');
 
-/**
- * csvList
- */
 const csvQueue = async.queue((csvName, csvCb) => {
+  /* TODO remove is callback check */
   const csv = {
     name: csvName,
-    total: 0, // 爬取的网页总数
-    download: 0, // 下载的网页总数
+    /* 爬取的网页总数 */
+    total: 0,
+    /* 下载的网页总数 */
+    download: 0,
     isCallback: false,
   };
 
@@ -32,11 +33,9 @@ const csvQueue = async.queue((csvName, csvCb) => {
     };
 
     const linkQueue = async.queue((task, callback) => {
-      // 检查重复
-      logger.info(`${task.url} running: ${linkQueue.running()}/${linkQueue.length()}`);
-
       let options = { uri: task.url };
 
+      /* TODO check charset */
       if (task.charset.indexOf('gb') !== -1) {
         options = {
           url: task.url,
@@ -48,42 +47,32 @@ const csvQueue = async.queue((csvName, csvCb) => {
       }
 
       request(options, (err, res, body) => {
-        csv.total++;
         domain.total++;
         if (err) {
           task.times++;
           if (task.times < configs.max_retry_times) {
             linkQueue.push(task);
           }
-          callback();
-          return logger.debug(`[Connect Error] ${task.url} request failed:\n${err}, try ${task.times} times`);
+          logger.warn(`${task.url} request failed:\n${err}, try ${task.times} times`);
+          return callback();
         }
 
         // 处理编码问题
         try {
-          task.charset = body.match(/charset="[^"]+"|charset=[^"]+/)[0].replace('charset=', '').replace(/"/, '').toLowerCase();
-          // logger.debug(`${task.url}: charset=${task.charset}`);
-          if (task.charset.indexOf('gb') !== -1) {
-            callback();
-            return linkQueue.push(task);
+          const charset = body.match(/charset="[^"]+"|charset=[^"]+/)[0].replace('charset=', '').replace(/"/, '').toLowerCase();
+          if (task.charset !== charset) {
+            task.charset = charset;
+            linkQueue.push(task);
+            return callback();
           }
         } catch (e) {
-          // logger.debug(`${task.url}: no charset`);
-          task.charset = 'utf-8';
-        }
-
-        if (!task.charset) {
-          task.charset = 'utf-8';
+          logger.warn(`${task.url} read charset failed`);
         }
 
         let html = body;
 
-        try {
-          if (task.charset.indexOf('gb') !== -1) {
-            html = iconv.decode(body, 'gb2312');
-          }
-        } catch (e) {
-          logger.error(`[Charset Error] ${JSON.stringify(task)}`);
+        if (task.charset.indexOf('gb') !== -1) {
+          html = iconv.decode(body, 'gb2312');
         }
 
         // 下载
@@ -92,15 +81,14 @@ const csvQueue = async.queue((csvName, csvCb) => {
         });
         items.url = task.url;
         items.org = task.org;
-        items.href = task.href ? task.href : '';
-        output(items, (outputErr, path) => {
+        items.href = task.href;
+        output(items, (outputErr, xmlPath) => {
           if (err) {
             return logger.warn(outputErr);
           }
 
-          logger.debug(`Download ${path}`);
+          logger.debug(`Download ${xmlPath}`);
           domain.download++;
-          csv.download++;
         });
 
         if (task.depth === configs.max_depth) {
@@ -130,26 +118,29 @@ const csvQueue = async.queue((csvName, csvCb) => {
       });
     }, configs.link_queue_limit);
 
+    /* domain task end when last link task finished */
     linkQueue.drain = () => {
       if (!domain.isCallback) {
         domain.isCallback = true;
-        domainCb();
+        csv.total += domain.total;
+        csv.download += domain.download;
         logger.info(`domain ${domain.name} FINISHED; download ${domain.download}/${domain.total}; queue ${domainQueue.running()}/${domainQueue.length()}`);
+        domainCb();
       }
     };
 
     linkQueue.push(seed);
   }, configs.domain_queue_limit);
 
+  /* csv task finished when last domain task finished */
   domainQueue.drain = () => {
     if (!csv.isCallback) {
       csv.isCallback = true;
-      csvCb();
       logger.info(`csv task ${csv.name} is FINISHED; download ${csv.download}/${csv.total}`);
+      csvCb();
     }
   };
 
-  // -------- push domain to domainQueue --------
   logger.info(`start read csv file: ${csv.name}`);
 
   const rl = readline.createInterface({
@@ -177,6 +168,6 @@ csvQueue.drain = () => {
 fs.readdirSync(configs.csv_dir).forEach((file) => {
   if (file.indexOf('.csv') !== -1) {
     logger.debug(`find csv file: ${file}`);
-    csvQueue.push(`data/${file}`);
+    csvQueue.push(path.join(configs.csv_dir, file));
   }
 });

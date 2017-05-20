@@ -11,7 +11,7 @@ const configs = require('../configs');
 function output(items, callback) {
   const builder = new xml2js.Builder();
   if (items.name === '' && items.href === '') {
-    callback(new Error('No name and href'));
+    return callback(new Error('No name and href'));
   }
   if (items.resume === '') {
     return callback(new Error('No resume'));

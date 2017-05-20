@@ -44,6 +44,7 @@ function getDomain(url) {
   return url.replace('http://', '').split('/')[0].split('.')[1];
 }
 
+exports.mkdirSync = mkdirSync;
 exports.mkdirs = makeParentDir;
 exports.getPath = getPath;
 exports.pathParse = pathParse;
