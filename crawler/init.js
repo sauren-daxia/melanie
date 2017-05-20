@@ -6,14 +6,15 @@ const request = require('request');
 const cheerio = require('cheerio');
 const iconv = require('iconv-lite');
 const Link = require('./lib/link');
-const logger = require('./lib/logger');
+const logger = require('./lib/logger')('crawler');
 const output = require('./lib/output');
 const htmlParser = require('./lib/htmlParser');
 
-const maxDepth = 1; // 最大深度
+const maxDepth = 2; // 最大深度
 const maxRetryTimes = 1; // 下载重试次数
-const csvQueueLimit = 1;
-const domainQueueLimit = 20;
+const threshold = 5; // 停止爬取下一层的阈值
+const csvQueueLimit = 4;
+const domainQueueLimit = 5;
 const linkQueueLimit = 1;
 
 /**
@@ -34,13 +35,14 @@ const csvQueue = async.queue((csvName, csvCb) => {
       download: 0,
       total: 0,
       depth: 0, // 深度
+      isCallback: false,
       nextLayer: [], // 下一层任务
     };
 
     const linkQueue = async.queue((task, callback) => {
       // 检查重复
       if (cache.has(task.url)) {
-        logger.debug(`${task.url} alread in cache, skip`);
+        // logger.debug(`${task.url} alread in cache, skip`);
         return callback();
       }
 
@@ -64,11 +66,28 @@ const csvQueue = async.queue((csvName, csvCb) => {
         }
 
         const $ = cheerio.load(html);
-        const links = $('a');
+        const links = $('[href]');
 
         for (let i = 0; i < links.length; i++) {
           let link = links.eq(i).attr('href');
-          const href = links.eq(i).text().trim();
+          let href = links.eq(i).text();
+          if (href === '') {
+            href = links.eq(i).attr('title');
+          }
+          if (!href) {
+            href = '';
+          }
+          href = href.replace(/\s/g, '');
+          if (href && href.indexOf('下载') !== -1) {
+            return callback();
+          }
+          if (href && href.indexOf('RSS') !== -1) {
+            return callback();
+          }
+
+          if (!link || link.indexOf('download') !== -1) {
+            return callback();
+          }
           if (link && link.indexOf('javascript') === -1) {
             link = url.resolve(task.url, link).replace('#', '');
             if (link.indexOf('http') !== -1 && !cache.has(link)) {
@@ -79,12 +98,8 @@ const csvQueue = async.queue((csvName, csvCb) => {
                   depth: task.depth + 1,
                   href,
                 });
-                if (child.domain === task.domain) {
-                  if (!cache.has(child.url)) {
-                    domain.nextLayer.push(child);
-                  }
-                } else {
-                  logger.debug(`skip ${child.url}, current ${task.domain}`);
+                if (child.domain === task.domain && !cache.has(child.url)) {
+                  domain.nextLayer.push(child);
                 }
               }
             }
@@ -102,18 +117,20 @@ const csvQueue = async.queue((csvName, csvCb) => {
           if (task.times < maxRetryTimes) {
             linkQueue.push(task);
           }
-          return logger.error(`${task.url} request failed:\n${err}, try ${task.times} times`);
+          callback();
+          return logger.debug(`[Connect Error] ${task.url} request failed:\n${err}, try ${task.times} times`);
         }
 
         // 处理编码问题
         try {
           task.charset = body.match(/charset="[^"]+"|charset=[^"]+/)[0].replace('charset=', '').replace(/"/, '').toLowerCase();
-          logger.debug(`${task.url}: charset=${task.charset}`);
+          // logger.debug(`${task.url}: charset=${task.charset}`);
           if (task.charset.indexOf('gb') !== -1) {
+            callback();
             return linkQueue.push(task);
           }
         } catch (e) {
-          logger.debug(`${task.url}: no charset`);
+          // logger.debug(`${task.url}: no charset`);
           task.charset = 'utf-8';
         }
 
@@ -128,7 +145,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
             html = iconv.decode(body, 'gb2312');
           }
         } catch (e) {
-          logger.error(`${JSON.stringify(task)}: charset`);
+          logger.error(`[Charset Error] ${JSON.stringify(task)}`);
         }
 
         // 下载
@@ -145,11 +162,16 @@ const csvQueue = async.queue((csvName, csvCb) => {
               }
             });
           } catch (e) {
-            logger.error(e);
+            logger.error(`[Output error] ${e}`);
           }
         }
 
-        linkExt(html);
+        try {
+          linkExt(html);
+        } catch (e) {
+          callback();
+          logger.error(`[Link error] ${task.url} => ${e}`);
+        }
       });
     }, linkQueueLimit);
 
@@ -157,16 +179,33 @@ const csvQueue = async.queue((csvName, csvCb) => {
       const nextLayerLength = domain.nextLayer.length;
 
       if (nextLayerLength === 0) {
-        domainCb();
-        return logger.info(`domain ${domain.name} FINISHED(no-next-layer); download ${domain.download}/${domain.total}; queue ${domainQueue.running()}/${domainQueue.length()}`);
+        if (!domain.isCallback) {
+          domain.isCallback = true;
+          domainCb();
+          logger.info(`domain ${domain.name} FINISHED(no-next-layer); download ${domain.download}/${domain.total}; queue ${domainQueue.running()}/${domainQueue.length()}`);
+        }
+        return null;
       }
 
       if (domain.depth > maxDepth) {
-        domainCb();
-        return logger.info(`domain ${domain.name} FINISHED(max-depth); download ${domain.download}/${domain.total}`);
+        if (!domain.isCallback) {
+          domain.isCallback = true;
+          domainCb();
+          logger.info(`domain ${domain.name} FINISHED(max-depth); download ${domain.download}/${domain.total}; queue ${domainQueue.running()}/${domainQueue.length()}`);
+        }
+        return null;
       }
 
-      logger.info(`domain ${domain.name}, current depth: ${domain.depth}; download ${domain.download}/${domain.total}; next layer length: ${nextLayerLength}; queue ${domainQueue.running()}/${domainQueue.length()}`);
+      if (domain.download > threshold) {
+        if (!domain.isCallback) {
+          domain.isCallback = true;
+          domainCb();
+          logger.info(`domain ${domain.name} FINISHED(threshold); download ${domain.download}/${domain.total}; queue ${domainQueue.running()}/${domainQueue.length()}`);
+        }
+        return null;
+      }
+
+      logger.debug(`domain ${domain.name}, current depth: ${domain.depth}; download ${domain.download}/${domain.total}; next layer length: ${nextLayerLength}`);
       domain.depth++;
       for (let i = 0; i < nextLayerLength; i++) {
         linkQueue.push(domain.nextLayer.shift());
@@ -196,7 +235,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
   rl.on('line', (line) => {
     domainQueue.push(new Link({
       url: line.split(',')[1],
-      org: `${csv.name.split('/')[1].replace('.csv', '')}-${line.split(',')[0]}`,
+      org: `${csv.name.split('/')[1].replace('.csv', '')}-${line.split(',')[0].trim()}`,
     }));
   });
 }, csvQueueLimit);

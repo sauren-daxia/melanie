@@ -48,4 +48,8 @@ csvQueue (limit: 1) -- domainList
 `--> domainQueue (limit: 20) -- linkList
        |
        `--> linkQueue (limit: 1)
-               
+
+- TODO
+  - unittest
+  - no-next-layer 怎么解决
+  - job没有callback

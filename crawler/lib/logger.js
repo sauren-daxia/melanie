@@ -1,5 +1,11 @@
-const log4js = require('log4js');
+/**
+ * @author: xiaoyu.bai
+ * @email: xiaoyu.bai@yitu-inc.com
+ * @date: 2017-05-20
+ * @purpose 日志模块
+ */
 const path = require('path');
+const log4js = require('log4js');
 
 const logLevelFilter = {
   type: 'logLevelFilter',
@@ -7,13 +13,11 @@ const logLevelFilter = {
     type: 'console',
   },
   level: 'INFO',
-  // level: 'DEBUG',
 };
 
 const dateFile = {
   type: 'dateFile',
-  filename: 'log/imagesync.log',
-  layout: { type: 'basic' },
+  filename: path.join('logs', '/log'),
   pattern: '.yyyy-MM-dd',
   alwaysIncludePattern: false,
 };
@@ -25,7 +29,8 @@ log4js.configure({
   ],
 });
 
-const logger = log4js.getLogger(path.basename(__filename));
-logger.setLevel('DEBUG');
-
-module.exports = logger;
+module.exports = (name) => {
+  const logger = log4js.getLogger(name || 'logger');
+  logger.setLevel('DEBUG');
+  return logger;
+};

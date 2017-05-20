@@ -3,12 +3,14 @@ data
 log
 
 # crawler
-data
-data-0
-download
-log
-module
-temp
+crawler/data
+crawler/data-0
+crawler/download
+crawler/log
+crawler/module
+crawler/temp
+crawler/test_download
+crawler/logs
 
 # node
 node_modules

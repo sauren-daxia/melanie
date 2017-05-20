@@ -1,7 +1,7 @@
 const fs = require('fs');
 const exec = require('child_process').exec;
 const xml2js = require('xml2js');
-const logger = require('./logger');
+const logger = require('./logger')('output');
 const mkdirs = require('./tools').mkdirs;
 const getPath = require('./tools').getPath;
 
@@ -19,22 +19,32 @@ function output(items, callback) {
   }
 
   if (!items.resume) {
-      return callback(false);
+    return callback(false);
   }
 
   items.resume = items.resume.toString().trim();
 
   mkdirs(path);
 
-  fs.writeFile(path, builder.buildObject(items).toString(), (err) => {
+  let xmlStr = '';
+
+  try {
+    xmlStr = builder.buildObject(items);
+    xmlStr = xmlStr.toString();
+  } catch (e) {
+    logger.error(`[Xml Build Error] ${items.href}`);
+    return callback(false);
+  }
+
+  fs.writeFile(path, xmlStr, (err) => {
     if (err) {
-      logger.error(`${path} => ${err}`);
+      logger.error(`[Write Error] ${path} => ${err}`);
       return callback(false);
     }
 
     exec(`python module/check.py ${path}`, (stderr, stdout) => {
       if (stderr) {
-        logger.error(`${path} => ${stderr}`);
+        logger.error(`[Exec Error] ${path}`);
         return callback(false);
       }
 
@@ -42,20 +52,20 @@ function output(items, callback) {
         setTimeout(() => {
           fs.unlink(path, () => {
             if (err) {
-              logger.error(err);
+              logger.error(`[Unlink Error] ${err}`);
             }
           });
-        }, 5000);
+        }, 10000);
         return callback(false);
       }
 
       if (!fs.existsSync(path)) {
-        logger.debug(`Crawled: ${path}`);
+        // logger.debug(`Crawled: ${path}`);
       } else {
-        logger.debug(`Updated: ${path}`);
+        // logger.debug(`Updated: ${path}`);
       }
 
-      logger.debug(`${path} => ${stdout}`);
+      logger.debug(`[Predict] ${path} => ${stdout}`);
       return callback(true);
     });
   });
