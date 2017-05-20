@@ -1,3 +1,6 @@
+/**
+ * 解析html, 获得姓名和简历
+ */
 const cheerio = require('cheerio');
 
 function htmlParser(html, callback) {
@@ -12,7 +15,9 @@ function htmlParser(html, callback) {
 
   const $ = cheerio.load(html);
 
+  /* 获取姓名 */
   let name;
+  /* 检查是否是正常的html文本，如果是zip或其他文件会抛出异常 */
   try {
     name = $('h1');
   } catch (e) {
@@ -26,6 +31,7 @@ function htmlParser(html, callback) {
     items.name = name.eq(0).text().replace(/\s/g, '');
   }
 
+  /* 获取简历 */
   let lines = $('p');
   if (lines.length === 0) {
     lines = $('td');

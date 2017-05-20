@@ -11,7 +11,7 @@
   | | +-- negative  // 负例
   | | `-- webs.js  // 部委级任务
   | +-- *download  // 下载数据
-  | +-- libs
+  | +-- lib
   | | +-- htmlParser.js
   | | +-- link.js
   | | +-- linkExt.js

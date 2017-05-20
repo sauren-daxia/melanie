@@ -1,8 +1,3 @@
-/**
- * @author: xiaoyu.bai
- * @email: xiaoyu.bai@yitu-inc.com
- * @date: 2017-05-20
- */
 const url = require('url');
 const cheerio = require('cheerio');
 
@@ -26,6 +21,7 @@ function linkExt({ html, seed, set }, callback) {
 
   const $ = cheerio.load(html);
   let links;
+  /* 检查是否是正常的html文本，如果是zip或其他文件会抛出异常 */
   try {
     links = $('[href]');
   } catch (e) {
@@ -35,6 +31,7 @@ function linkExt({ html, seed, set }, callback) {
 
   for (let i = 0; i < links.length; i++) {
     const linkeq = links.eq(i);
+    /* 获取链接描述 */
     let href;
     href = linkeq.text();
     if (!href || href === '') {
@@ -49,6 +46,7 @@ function linkExt({ html, seed, set }, callback) {
       continue;
     }
 
+    /* 获取链接 */
     let link = linkeq.attr('href');
     if (!link || link.match(/download|javascript|ico|css/g) || link === '/') {
       continue;

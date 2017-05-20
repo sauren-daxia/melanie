@@ -1,4 +1,5 @@
 const fs = require('fs');
+const configs = require('../configs');
 
 function mkdirSync(path) {
   if (!fs.existsSync(path)) {
@@ -19,8 +20,16 @@ function makeParentDir(path) {
   }
 }
 
+function pathParse(path) {
+  path = path.toString().replace(/[\s\\*/:?"<>|]/g, '');
+  if (path.length > 15) {
+    path = path.substring(0, 15);
+  }
+  return path;
+}
+
 function getPath(items) {
-  let path = `resume_${(new Date()).valueOf().toString()}`;
+  let path = 'resume';
   if (items.name !== '') {
     path = pathParse(items.name);
   } else if (items.href !== '') {
@@ -28,20 +37,14 @@ function getPath(items) {
     items.name = items.href;
   }
 
-  return `download/${items.org.split('-')[0]}/${items.org.split('-')[1]}/${path}.xml`;
+  return `${configs.output_dir}/${items.org.split('-')[0]}/${items.org.split('-')[1]}/${path}.xml`;
 }
 
-function pathParse(path) {
-  if (!path) {
-    return (new Date()).valueOf().toString();
-  }
-  path = path.toString().replace(/[\s\\*/:?"<>|]/g, '');
-  if (path.length > 6) {
-    path = path.substring(0, 6);
-  }
-  return path;
+function getDomain(url) {
+  return url.replace('http://', '').split('/')[0].split('.')[1];
 }
 
 exports.mkdirs = makeParentDir;
 exports.getPath = getPath;
 exports.pathParse = pathParse;
+exports.getDomain = getDomain;

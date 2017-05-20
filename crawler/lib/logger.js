@@ -6,6 +6,7 @@
  */
 const path = require('path');
 const log4js = require('log4js');
+const configs = require('../configs');
 
 const logLevelFilter = {
   type: 'logLevelFilter',
@@ -17,7 +18,7 @@ const logLevelFilter = {
 
 const dateFile = {
   type: 'dateFile',
-  filename: path.join('logs', '/log'),
+  filename: path.join('logs', configs.log_file),
   pattern: '.yyyy-MM-dd',
   alwaysIncludePattern: false,
 };
@@ -30,7 +31,7 @@ log4js.configure({
 });
 
 module.exports = (name) => {
-  const logger = log4js.getLogger(name || 'logger');
+  const logger = log4js.getLogger(name || configs.default_logger);
   logger.setLevel('DEBUG');
   return logger;
 };

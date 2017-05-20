@@ -8,12 +8,8 @@ const logger = require('./lib/logger')('crawler');
 const output = require('./lib/output');
 const htmlParser = require('./lib/htmlParser');
 const linkExt = require('./lib/linkExt');
-
-const maxDepth = 2; // 最大深度
-const maxRetryTimes = 1; // 下载重试次数
-const csvQueueLimit = 4;
-const domainQueueLimit = 5;
-const linkQueueLimit = 1;
+const clean = require('./lib/clean');
+const configs = require('./configs');
 
 /**
  * csvList
@@ -56,7 +52,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
         domain.total++;
         if (err) {
           task.times++;
-          if (task.times < maxRetryTimes) {
+          if (task.times < configs.max_retry_times) {
             linkQueue.push(task);
           }
           callback();
@@ -97,20 +93,17 @@ const csvQueue = async.queue((csvName, csvCb) => {
         items.url = task.url;
         items.org = task.org;
         items.href = task.href ? task.href : '';
-        if (task.crawl()) {
-          try {
-            output(items, (isResume) => {
-              if (isResume) {
-                domain.download++;
-                csv.download++;
-              }
-            });
-          } catch (e) {
-            logger.error(`[Output error] ${e}`);
+        output(items, (outputErr, path) => {
+          if (err) {
+            return logger.warn(outputErr);
           }
-        }
 
-        if (task.depth === maxDepth) {
+          logger.debug(`Download ${path}`);
+          domain.download++;
+          csv.download++;
+        });
+
+        if (task.depth === configs.max_depth) {
           return callback();
         }
 
@@ -135,7 +128,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
         });
         callback();
       });
-    }, linkQueueLimit);
+    }, configs.link_queue_limit);
 
     linkQueue.drain = () => {
       if (!domain.isCallback) {
@@ -146,7 +139,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
     };
 
     linkQueue.push(seed);
-  }, domainQueueLimit);
+  }, configs.domain_queue_limit);
 
   domainQueue.drain = () => {
     if (!csv.isCallback) {
@@ -171,10 +164,17 @@ const csvQueue = async.queue((csvName, csvCb) => {
       org: `${csv.name.split('/')[1].replace('.csv', '')}-${line.split(',')[0].trim()}`,
     }));
   });
-}, csvQueueLimit);
+}, configs.csv_queue_limit);
 
-// -------- push csv to csvQueue --------
-fs.readdirSync('data').forEach((file) => {
+/* when the last csv task finished => clean negative xml files */
+csvQueue.drain = () => {
+  clean(configs.negative_file, (err) => {
+    logger.error(err);
+  });
+};
+
+/* walk dir and push csv files to csvQueue */
+fs.readdirSync(configs.csv_dir).forEach((file) => {
   if (file.indexOf('.csv') !== -1) {
     logger.debug(`find csv file: ${file}`);
     csvQueue.push(`data/${file}`);

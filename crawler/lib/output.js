@@ -1,72 +1,45 @@
+/**
+ * 输出xml文件
+ */
 const fs = require('fs');
 const exec = require('child_process').exec;
 const xml2js = require('xml2js');
-const logger = require('./logger')('output');
 const mkdirs = require('./tools').mkdirs;
 const getPath = require('./tools').getPath;
-
-const builder = new xml2js.Builder();
+const configs = require('../configs');
 
 function output(items, callback) {
-  const path = getPath(items);
-
-  if (path.indexOf('resume') !== -1) {
-    return callback(false);
+  const builder = new xml2js.Builder();
+  if (items.name === '' && items.href === '') {
+    callback(new Error('No name and href'));
   }
-
   if (items.resume === '') {
-    return callback(false);
+    return callback(new Error('No resume'));
   }
 
-  if (!items.resume) {
-    return callback(false);
-  }
-
-  items.resume = items.resume.toString().trim();
-
+  const path = getPath(items);
   mkdirs(path);
 
-  let xmlStr = '';
-
-  try {
-    xmlStr = builder.buildObject(items);
-    xmlStr = xmlStr.toString();
-  } catch (e) {
-    logger.error(`[Xml Build Error] ${items.org};${items.name};${items.href};${items.url}`);
-    return callback(false);
-  }
-
-  fs.writeFile(path, xmlStr, (err) => {
+  fs.writeFile(path, builder.buildObject(items).toString(), (err) => {
     if (err) {
-      logger.error(`[Write Error] ${path} => ${err}`);
-      return callback(false);
+      return callback(err);
     }
 
+    /* 检测是否为简历 */
     exec(`python module/check.py ${path}`, (stderr, stdout) => {
       if (stderr) {
-        logger.error(`[Exec Error] ${path}`);
-        return callback(false);
+        return callback(stderr);
       }
 
-      if (stdout.indexOf('100') === -1) {
-        setTimeout(() => {
-          fs.unlink(path, () => {
-            if (err) {
-              logger.error(`[Unlink Error] ${err}`);
-            }
-          });
-        }, 10000);
-        return callback(false);
+      if (stdout.indexOf('Accuracy = 100%') === -1) {
+        fs.appendFile(configs.negative_file, `${path}\n`, (appendErr) => {
+          if (appendErr) {
+            return callback(appendErr);
+          }
+        });
       }
 
-      if (!fs.existsSync(path)) {
-        // logger.debug(`Crawled: ${path}`);
-      } else {
-        // logger.debug(`Updated: ${path}`);
-      }
-
-      logger.debug(`[Predict] ${path} => ${stdout}`);
-      return callback(true);
+      return callback(null, path);
     });
   });
 }
