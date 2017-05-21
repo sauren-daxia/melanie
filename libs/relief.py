@@ -78,19 +78,13 @@ def fit(features, labels, iter_ratio):
         weight = weight - \
             np.power(self_features - nearHit, 2) + \
             np.power(self_features - nearMiss, 2)
-    print weight / (iter_ratio * n_samples)
+    # print weight / (iter_ratio * n_samples)
     return weight / (iter_ratio * n_samples)
 
 
 def test():
     (features, labels) = make_classification(n_samples=500)
-    with open('features_origin', 'w') as f:
-        f.write(str(features))
     features = normalize(X=features, norm='l2', axis=0)
-    with open('features', 'w') as f:
-        f.write(str(features))
-    with open('labels', 'w') as f:
-        f.write(str(labels))
     for x in xrange(1, 10):
         weight = fit(features, labels, 1)
         with open('weight', 'a+') as f:
