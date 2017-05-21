@@ -1,0 +1,4 @@
+陈传文
+安徽-省财政厅
+陈传文，男，汉族，1957年出生，安徽广德人，中共党员，1981年参加工作，本科学历。2009年6月至今，担任省财政厅副巡视员。
+联系电话：0551-68150109。functionsetHomePageAuto(){varpageHref=window.parent.location.href;document.all.homepage.style.behavior="url(#default#homepage)";document.all.homepage.setHomePage(pageHref);}functionaddFavorite(){varpageHref=window.parent.location.href;window.external.AddFavorite(pageHref,"安徽省财政厅");}设为首页|加入收藏|网站地图|联系我们|免责声明|违法和不良信息举报中心安徽省财政厅(2016)版权所有(C)<皖ICP备05016424号>地址:合肥市阜南西路238号运维电话：0551-68150342技术支持:合肥深拓软件有限公司

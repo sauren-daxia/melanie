@@ -1,13 +1,12 @@
 # local
-data
+# data
 logs
 
 # crawler
-crawler/data
-crawler/download
+# crawler/data
+# crawler/download
 crawler/logs
 crawler/module
-crawler/logs
 
 # node
 node_modules

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <name>留言列表</name>
+  <resume>您所在的位置：：首页&gt;互动交流&gt;公众留言
+公众留言
+标题
+提问时间
+处理结果
+（2016-04-13）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2016-04-01）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2016-04-01）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2015-12-15）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2015-06-29）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2015-06-27）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2013-12-30）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2013-09-10）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2012-10-15）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};
+（2012-09-26）
+varcljg='2';if(cljg=="0"){document.write("未受理");}elseif(cljg=="2"){document.write("已处理");}elseif(cljg=="1"){document.write("已受理");};</resume>
+  <url>http://www.qhcom.gov.cn/jiaoliu/jiaoliu_2/list.html</url>
+  <org>青海-省商务厅</org>
+  <href>留言列表</href>
+</root>

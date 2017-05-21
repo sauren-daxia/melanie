@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <name>项中胜</name>
+  <resume>项中胜，男，汉族，1969年出生，安徽休宁人，中共党员，1991年7月参加工作，大学学历，文学学士。2013年2月任省新闻出版局(省版权局)党组成员、纪检组长，省新闻出版广电局党组成员、纪检组长。2016年6月起担任驻省财政厅纪检组组长、党组成员。
+联系电话：0551-68150109。
+functionsetHomePageAuto(){varpageHref=window.parent.location.href;document.all.homepage.style.behavior="url(#default#homepage)";document.all.homepage.setHomePage(pageHref);}functionaddFavorite(){varpageHref=window.parent.location.href;window.external.AddFavorite(pageHref,"安徽省财政厅");}设为首页|加入收藏|网站地图|联系我们|免责声明|违法和不良信息举报中心安徽省财政厅(2016)版权所有(C)&lt;皖ICP备05016424号&gt;地址:合肥市阜南西路238号运维电话：0551-68150342技术支持:合肥深拓软件有限公司</resume>
+  <url>http://www.ahcz.gov.cn//portal/zwgk/jgld/tld/1468976663489329.htm</url>
+  <org>安徽-省财政厅</org>
+  <href>项中胜</href>
+</root>

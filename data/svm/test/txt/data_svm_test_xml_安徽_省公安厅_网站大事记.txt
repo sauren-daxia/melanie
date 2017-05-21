@@ -1,0 +1,16 @@
+网站大事记
+安徽-省公安厅
+functiongetAttachImage(){//获取文章上传的图片$.getJSON(appPath+"lw-admin/common/lw-content-imgs!getAttachImage.action?id=ff80808148e2017f0148e4c83a59127b&callback=?",function(result){if(result.textStatus=="success"){varsrcArray=result.data.split('|');varimgSrcs='';for(vari=0;i<srcArray.length;i++){imgSrcs=imgSrcs+'<imgsrc="'+srcArray[i]+'"style="max-width:800px"/><br/>';}document.getElementById("attImg").innerHTML=imgSrcs;}});}getAttachImage();
+2010年
+·为贯彻落实全国公安机关社会管理创新工作座谈会精神，省公安厅提出互联网警务创新工作要求，并确定为我厅社会管理创新七个项目课题之一。·省公安厅成立互联网警务工作领导小组，启动全省公安政务门户网站群“平安江淮网”建设工作。·“平安江淮网”一期项目开工建设。
+2011年
+·互联网警务创新工作被列入《安徽省公安机关科技强警“十二五”发展规划》。·“平安江淮网”省公安厅网站上线运行。·“平安江淮网”阜阳、淮南、芜湖、铜陵、安庆市局子网站上线运行。·“平安江淮网”二期项目开工建设。
+2012年
+·“平安江淮网”淮北、蚌埠、亳州、宿州、马鞍山、黄山、宣城、六安、滁州、池州市局子网站上线运行。·中国信息化研究与促进网发布2012年中国优秀政府网站推荐及综合影响力评估结果，“平安江淮网”获评“2012年度中国政府网站领先奖”、“设计创新型政府网站”。·“平安江淮网”获评“首届安徽省文明网站”。
+·“平安江淮网”筹备组荣立集体三等功。
+2013年
+·“平安江淮网”获评2012年度全省优秀政府网站。·“平安江淮网”三期项目开工建设。·落实省政府政务公开工作要求，实现“平安江淮网”省公安厅办事平台与省政府政务服务中心审批系统的数据共享。·“安徽公安网”112个县（分）局子网站上线运行。·“平安江淮网”更名为“安徽公安网”。·中国信息化研究与促进网发布2013中国优秀政务平台推荐及综合影响力评估结果，“安徽公安网”获评“2013年度中国政府网站领先奖”。
+2014年
+·“安徽公安网”获评2013年度全省优秀政府网站。·“安徽公安网”项目建设工作被列入《全省公安科技信息化2014－2016年建设规划》。·“安徽公安网”省厅新版网站上线运行。·“安徽公安网”四期项目开工建设。·中国信息化研究与促进网发布2014年中国优秀政务平台推荐及综合影响力评估结果，“安徽公安网”获评2014年度“中国政务网站优秀奖”。
+关于我们|法律声明|隐私保护|网站地图|网站大事记|联系方式|使用帮助
+Copyright(c)2011AHPSDAllRightsReserved安徽省公安厅版权所有皖ICP备05015515号functiongetSiteRecord(){$.getJSON(appPath+"lw-admin/common/lw-visit!setSiteRecord.action?sid=ff80808148854eef014886860f95045f&callback=?",function(result){if(result.textStatus=="success"){getSiteRecord1();}});}functiongetSiteRecord1(){//获取文章访问量$.getJSON(appPath+"lw-admin/common/lw-visit!getSiteRecord.action?sid=ff80808148854eef014886860f95045f&callback=?",function(result){if(result.textStatus=="success"){varvisitSiteNum=document.getElementById("visitSiteNum");varvisitSiteCurrentNum=document.getElementById("visitSiteCurrentNum");varobject=result.data;visitSiteNum.innerHTML="您是"+object.lwContentTitle+"位访客";visitSiteCurrentNum.innerHTML="今日访问"+object.lwRemark;}});}getSiteRecord();

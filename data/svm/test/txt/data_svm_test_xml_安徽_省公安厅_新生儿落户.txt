@@ -1,0 +1,9 @@
+新生儿落户
+安徽-省公安厅
+我和老婆都在合肥高新区工作。我是集体户口，挂靠在合肥市高新区人才市场。老婆是安庆市太湖县的农村户口。老婆还有1个月左右就要生了，关于小孩落户咨询以下几个问题：（1）小孩户口是否可以落在合肥市高新区人才市场的集体户？（2）如户口可落在集体户，是否可以为小孩参加合肥居民医保？（3）如户口不可落在集体户，需要落在哪里？是否可以为小孩参加合肥居民医保？
+网友：您好！首先，感谢您对我们的信任。现将办理情况回复如下：2017年4月21日您咨询新生儿落户问题。据悉您户口挂靠在高新区人才市场的集体户，现准备等新生儿出生将落户在人才市场集体户，根据合肥市新生儿落户政策，您可携带您与您爱人双方的身份证、户口本、结婚证及出生医学证明来高新分局户政中心办理落户。您咨询的医保问题不归公安管理，请您咨询相关部门。感谢您对公安工作的理解和支持，欢迎您继续监督并提出宝贵意见！
+安徽公安网
+2017年4月26日
+满意度:满意
+关于我们|法律声明|隐私保护|网站地图|网站大事记|联系方式|使用帮助
+Copyright(c)2011AHPSDAllRightsReserved安徽省公安厅版权所有皖ICP备05015515号functiongetSiteRecord(){$.getJSON(appPath+"lw-admin/common/lw-visit!setSiteRecord.action?sid=ff80808148854eef014886860f95045f&callback=?",function(result){if(result.textStatus=="success"){getSiteRecord1();}});}functiongetSiteRecord1(){//获取文章访问量$.getJSON(appPath+"lw-admin/common/lw-visit!getSiteRecord.action?sid=ff80808148854eef014886860f95045f&callback=?",function(result){if(result.textStatus=="success"){varvisitSiteNum=document.getElementById("visitSiteNum");varvisitSiteCurrentNum=document.getElementById("visitSiteCurrentNum");varobject=result.data;visitSiteNum.innerHTML="您是"+object.lwContentTitle+"位访客";visitSiteCurrentNum.innerHTML="今日访问"+object.lwRemark;}});}getSiteRecord();

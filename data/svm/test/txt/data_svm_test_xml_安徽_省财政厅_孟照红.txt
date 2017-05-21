@@ -1,0 +1,4 @@
+孟照红
+安徽-省财政厅
+孟照红，男，1965年出生，安徽临泉人，中共党员，安徽工商管理学院工商管理硕士同等学力教育，经济学学士。2008年4月-2013年11月，担任省财政厅预算处处长；2013年10月，担任省财政厅党组成员；2013年11月至今，担任省财政厅党组成员、副厅长。
+联系电话：0551-68150109。functionsetHomePageAuto(){varpageHref=window.parent.location.href;document.all.homepage.style.behavior="url(#default#homepage)";document.all.homepage.setHomePage(pageHref);}functionaddFavorite(){varpageHref=window.parent.location.href;window.external.AddFavorite(pageHref,"安徽省财政厅");}设为首页|加入收藏|网站地图|联系我们|免责声明|违法和不良信息举报中心安徽省财政厅(2016)版权所有(C)<皖ICP备05016424号>地址:合肥市阜南西路238号运维电话：0551-68150342技术支持:合肥深拓软件有限公司

@@ -1,0 +1,14 @@
+机构领导
+安徽-省公安厅
+李建中同志主持公安厅全面工作，直接处理厅办公室、情报指挥中心涉及全局的重大紧急事项
+个人简介：李建中，男，1965年5月出生，汉族，河南陕县人，1984年7月参加工作，1991年11月加入中国共产党，在职研究生学历，法律硕士学位，副总警监警衔。
+历任河南省公安厅刑事侦查处大案及暴力犯罪侦查科侦查员
+河南省公安厅办公室调研室副主任、主任
+河南省公安厅办公室副主任
+河南省公安厅十二处处长（其间：挂职任安阳市龙安区副区长）
+河南省公安厅党委委员、副厅长
+河南省公安厅党委副书记、常务副厅长（正厅级，负责公安厅日常工作）
+安徽省省长助理、省政府党组成员，省委政法委副书记，省公安厅党委书记、厅长、督察长
+现任安徽省副省长，省委政法委副书记，省公安厅党委书记、厅长、督察长。中共河南省第九届委员会委员
+关于我们|法律声明|隐私保护|网站地图|网站大事记|联系方式|使用帮助
+Copyright(c)2011AHPSDAllRightsReserved安徽省公安厅版权所有皖ICP备05015515号functiongetSiteRecord(){$.getJSON(appPath+"lw-admin/common/lw-visit!setSiteRecord.action?sid=ff80808148854eef014886860f95045f&callback=?",function(result){if(result.textStatus=="success"){getSiteRecord1();}});}functiongetSiteRecord1(){//获取文章访问量$.getJSON(appPath+"lw-admin/common/lw-visit!getSiteRecord.action?sid=ff80808148854eef014886860f95045f&callback=?",function(result){if(result.textStatus=="success"){varvisitSiteNum=document.getElementById("visitSiteNum");varvisitSiteCurrentNum=document.getElementById("visitSiteCurrentNum");varobject=result.data;visitSiteNum.innerHTML="您是"+object.lwContentTitle+"位访客";visitSiteCurrentNum.innerHTML="今日访问"+object.lwRemark;}});}getSiteRecord();

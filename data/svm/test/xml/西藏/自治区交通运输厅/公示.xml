@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <name>公示</name>
+  <resume>vard,s="";varx=newArray("星期日","星期一","星期二","星期三","星期四","星期五","星期六");d=newDate();s+=x[d.getDay()];document.writeln(s);
+vard,s="";d=newDate();s+=d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate();document.writeln(s);
+时间：2017-03-22来源：西藏自治区交通运输厅
+由安徽皖通科技股份有限公司承建的西藏省道303线洛隆至边坝公路改建工程拉丁拉山隧道机电工程项目现已完工，并于2016年12月通过了交工验收。本项目在施工完工时已结清农民工工资、材料、机械等费用。在整个施工过程中，未有拖欠行为。
+特此公示，如有异议请于公示之日起30天内向西藏自治区交通运输厅监察处、纪委、检查组等相关部门或者本公司投诉。
+联系人：何结海，联系电话：17784086405
+安徽皖通科技股份有限公司
+2017年2月22日
+下一篇：那曲地区申扎县G562线K213+000至下过乡公路改建工程等4个公路项目环境影响评价信息第二次公示
+版权所有西藏自治区交通运输厅藏ICP备05000664号
+维护单位：西藏自治区交通厅通信信息中心联系电话：0891-6838389
+#_span_jiucuo{display:block;float:left;margin-left:12px;margin-top:10px;}</resume>
+  <url>http://www.xzjtt.gov.cn/zwgk/tzgg/201703/t20170322_24895.html</url>
+  <org>西藏-自治区交通运输厅</org>
+  <href>公示</href>
+</root>

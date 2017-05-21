@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <name>青春之赞歌</name>
+  <resume>functiongetAttachImage(){//获取文章上传的图片$.getJSON(appPath+"lw-admin/common/lw-content-imgs!getAttachImage.action?id=ff8080815bcabfc7015bcc0495070218&amp;callback=?",function(result){if(result.textStatus=="success"){varsrcArray=result.data.split('|');varimgSrcs='';for(vari=0;i&lt;srcArray.length;i++){imgSrcs=imgSrcs+'&lt;imgsrc="'+srcArray[i]+'"style="max-width:800px"/&gt;&lt;br/&gt;';}document.getElementById("attImg").innerHTML=imgSrcs;}});}getAttachImage();
+青春是一个敏感的季节，一个觉醒的季节，一个成熟的季节，我们会为自己以及身边的一切而感动，为自己的成长而自豪，为自己经历的世事感到沧桑。生活赋予了我们一种礼品，一种高贵巨大的礼品，那就是青春。充满着力量，充满着求知和斗争的志向，充满着希望和信心。人们将青春比作东方初升的太阳，充满希望;人们将青春比作清晨带露的鲜花，充满活力;人们将青春比作熊熊燃烧的火焰，充满热情。青春是永恒的，青春不是人生的一段时期，而是心灵的一种状况。青春可以成为我们精神世界的源泉!五月四日是青年人的节日，它纪念的是一个日子，弘扬的却是一种精神。作为青年民警的一代，我们幸福的成长在改革开放的春风里，也带来了很多难忘的记忆：1997年香港回归祖国，1999年澳门的回归，都寓意着中华民族洗雪了百年的耻辱，祖国统一大业向前迈近了一大步。2001年申奥成功，同年12月11号中国加入世界贸易组织，举国上下，全民热血沸腾......回想起来，不禁感慨，祖国一直在不断的振兴、强大，这正是改革开放所带来的成果使这一切成为现实。而我们新一代的青年，已经准备好!李大钊先生曾这样说：青年之字典，无“困难”之字;青年之口头，无“障碍”之语;惟知跃进，惟知雄飞，惟知本身自由之精神，奇僻之思想，锐敏之直觉，活泼之生命，以创造环境，征服历史!青春，多么可爱的季节!感动、思索、个性与主性的张扬，让我们共同拥有一个生机勃勃的未来而感到自豪。（蚌埠市公安局王鼎）
+欢迎关注"安徽公安网"客户端、安徽公安厅官方微信"安徽警方"
+关于我们|法律声明|隐私保护|网站地图|网站大事记|联系方式|使用帮助
+Copyright(c)2011AHPSDAllRightsReserved安徽省公安厅版权所有皖ICP备05015515号
+functiongetSiteRecord(){$.getJSON(appPath+"lw-admin/common/lw-visit!setSiteRecord.action?sid=ff80808148854eef014886860f95045f&amp;callback=?",function(result){if(result.textStatus=="success"){getSiteRecord1();}});}functiongetSiteRecord1(){//获取文章访问量$.getJSON(appPath+"lw-admin/common/lw-visit!getSiteRecord.action?sid=ff80808148854eef014886860f95045f&amp;callback=?",function(result){if(result.textStatus=="success"){varvisitSiteNum=document.getElementById("visitSiteNum");varvisitSiteCurrentNum=document.getElementById("visitSiteCurrentNum");varobject=result.data;visitSiteNum.innerHTML="您是"+object.lwContentTitle+"位访客";visitSiteCurrentNum.innerHTML="今日访问"+object.lwRemark;}});}getSiteRecord();</resume>
+  <url>http://www.ahga.gov.cn/jyfc/201705/030955041kds.html</url>
+  <org>安徽-省公安厅</org>
+  <href>青春之赞歌</href>
+</root>

@@ -1,0 +1,6 @@
+信息公开
+贵州-省交通运输厅
+个人简历：
+王秉清varxb='';if(xb!=''){document.write('，'+xb);}varmz='';if(mz!=''){document.write('，'+mz);}varcsrq='';if(csrq!=''){document.write('，'+csrq+'生');}varjg='';if(jg!=''){document.write('，'+jg);}varrdsj='';if(rdsj!=''){document.write('，中共党员');}varcjgzsj='';if(cjgzsj!=''){document.write('，'+cjgzsj+'参加工作');}varbyyx='';if(byyx!=''){document.write('，毕业于'+byyx+'');}varsw='';if(sw!=''){document.write('，'+sw+'');}
+版权所有：贵州省交通运输厅Copyright◎2007-2016www.qjt.gov.cnAllRightsReserved黔ICP备05002662技术支持：贵州多彩博虹科技有限公司
+推荐浏览器：IE6+火狐5+谷歌10+欧朋8+Safari4+QQ浏览器4+360浏览器4+显示屏分辨率>=[1024*768]邮箱登录varcnzz_protocol=(("https:"==document.location.protocol)?"https://":"http://");document.write(unescape("%3Cspanid='cnzz_stat_icon_1259743177'%3E%3C/span%3E%3Cscriptsrc='"+cnzz_protocol+"s4.cnzz.com/stat.php%3Fid%3D1259743177%26online%3D1%26show%3Dline'type='text/javascript'%3E%3C/script%3E"));

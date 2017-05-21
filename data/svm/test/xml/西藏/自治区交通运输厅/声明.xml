@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <name>声明</name>
+  <resume>vard,s="";varx=newArray("星期日","星期一","星期二","星期三","星期四","星期五","星期六");d=newDate();s+=x[d.getDay()];document.writeln(s);
+vard,s="";d=newDate();s+=d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate();document.writeln(s);
+时间：2017-04-14来源：西藏自治区交通运输厅
+由我公司承担施工的国道318线中尼公路日喀则市区绕城段新改建工程已于2016年10月底完工。该工程所牵扯的民工工资、材料款、机械租赁等已全部付清。如有异议请于本声明见报之日起30日内与我公司联系。
+联系电话：18609109900
+特此声明
+中交第二公路工程局有限公司国道318线中尼公路
+日喀则市区绕城段新改建工程项目经理部
+2017年3月20日
+下一篇：民工工资支付结清公示单
+版权所有西藏自治区交通运输厅藏ICP备05000664号
+维护单位：西藏自治区交通厅通信信息中心联系电话：0891-6838389
+#_span_jiucuo{display:block;float:left;margin-left:12px;margin-top:10px;}</resume>
+  <url>http://www.xzjtt.gov.cn/zwgk/tzgg/201704/t20170414_26152.html</url>
+  <org>西藏-自治区交通运输厅</org>
+  <href>声明</href>
+</root>

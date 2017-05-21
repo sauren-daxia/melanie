@@ -1,0 +1,15 @@
+稻花香里
+江西-省农业厅
+《稻花香里》第162期：看婺源“喜庆鱼”2017-04-27
+《稻花香里》第161期：寻力供给侧--水稻原种场的“变形记”2017-04-24
+《稻花香里》第160期：寻力供给侧--众筹母猪的突与围2017-04-20
+《稻花香里》第159期：看休闲农业迎风起飞2017-04-17
+《稻花香里》第158期：看现代鸡中的“印钞”鸡2017-04-13
+《稻花香里》第157期：带您游乡村。2017-04-10
+《稻花香里》第156期：盘点农业人+春游好去处之凤凰沟2017-04-06
+《稻花香里》第155期：特别节目“最可爱的农业人—杨普香、陈玲珍”2017-04-03
+《稻花香里》第154期：特别节目“最可爱的农业人—李林海、艾国华”2017-03-30
+主办：江西省农业厅承办：江西省农业信息中心
+赣ICP备13000412号版权所有(C)江西省农业信息中心
+地址：南昌市北京西路省政府大院东二路2号邮编：330046
+邮箱：webmaster@jxagri.gov.cn咨询服务热线：12316varbrowserName=navigator.appName;varbrowserVersion=parseInt(navigator.appVersion);varbrowser='其它';if(browserName=='Netscape'&&browserVersion==5){browser='NN6';}elseif(browserName=='Netscape'&&browserVersion==4){browser='NN4';}elseif(browserName=='MicrosoftInternetExplorer'&&browserVersion==4&&navigator.appVersion.indexOf('MSIE6.0')!=-1){browser='IE6';}elseif(browserName=='MicrosoftInternetExplorer'&&browserVersion==4&&navigator.appVersion.indexOf('MSIE5.5')!=-1){browser='IE55';}elseif(browserName=='MicrosoftInternetExplorer'&&browserVersion==4&&navigator.appVersion.indexOf('MSIE5.0')!=-1){browser='IE5';}elseif(browserName=='MicrosoftInternetExplorer'&&browserVersion==4){browser='IE4';}varsystem='其它';if(navigator.appVersion.indexOf('Windows')!=-1)system='Windows';document.write('<scr'+'iptlanguage=javascriptsrc=/Counter?countType=Column&siteId=1&id=2673&style=simple&browser='+browser+'&system='+system+'&Referer='+escape(document.referrer)+'&Url='+escape(document.URL)+'&Timezone='+escape((newDate()).getTimezoneOffset())+'&Width='+escape(screen.width)+'&Height='+escape(screen.height)+'&Color='+escape(screen.colorDepth)+'></scr'+'ipt>');

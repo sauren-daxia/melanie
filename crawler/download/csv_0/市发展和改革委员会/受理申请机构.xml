@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <name>受理申请机构</name>
+  <resume>信息公开受理申请机构申请的提出方式申请的处理申请表下载网上申请
+受理申请机构申请的提出方式申请的处理申请表下载functionselectTagxmxx(showContent,selfObj){//操作标签vartag=document.getElementById("tagsxmxx").getElementsByTagName("li");vartaglength=tag.length;for(i=0;i&lt;taglength;i++){tag[i].className="";}selfObj.parentNode.className="selectTagxmxx";//操作内容for(i=0;j=document.getElementById("tagContentxmxx"+i);i++){j.style.display="none";}document.getElementById(showContent).style.display="block";}functiongetQueryString(name){varreg=newRegExp("(^|&amp;)"+name+"=([^&amp;]*)(&amp;|$)","i");varr=window.location.search.substr(1).match(reg);if(r!=null)returndecodeURI(r[2]);returnnull;}$(function(){$cha=getQueryString("q");if($cha==1){$(".xw1").addClass('xwzx_select');$("#tagContentxmxx0").show();$("#tagContentxmxx1").hide();$("#tagContentxmxx2").hide();$("#tagContentxmxx3").hide();$("#zl0").addClass('selectTagxmxx').siblings().removeClass('selectTagxmxx');}elseif($cha==2){$(".xw2").addClass('xwzx_select');$("#tagContentxmxx0").hide();$("#tagContentxmxx1").show();$("#tagContentxmxx2").hide();$("#tagContentxmxx3").hide();$("#zl1").addClass('selectTagxmxx').siblings().removeClass('selectTagxmxx');}elseif($cha==3){$(".xw3").addClass('xwzx_select');$("#tagContentxmxx0").hide();$("#tagContentxmxx1").hide();$("#tagContentxmxx2").show();$("#tagContentxmxx3").hide();$("#zl2").addClass('selectTagxmxx').siblings().removeClass('selectTagxmxx');}elseif($cha==4){$(".xw4").addClass('xwzx_select');$("#tagContentxmxx0").hide();$("#tagContentxmxx1").hide();$("#tagContentxmxx2").hide();$("#tagContentxmxx3").show();$("#zl3").addClass('selectTagxmxx').siblings().removeClass('selectTagxmxx');}})
+</resume>
+  <url>http://fgw.sh.gov.cn/info/iList.jsp?node_id=GKxxgk&amp;cat_id=10056&amp;q=1/</url>
+  <org>csv_0-市发展和改革委员会</org>
+  <href>受理申请机构</href>
+</root>
