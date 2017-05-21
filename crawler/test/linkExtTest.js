@@ -33,7 +33,7 @@ describe('linkExt', () => {
     it('should return -1 when the value is not present', (done) => {
       const defaultOptions = { uri: 'http://www.baidu.com' };
       testLinkExt(defaultOptions, (length) => {
-        assert.equal(36, length);
+        assert.equal(35, length);
         done();
       });
     });

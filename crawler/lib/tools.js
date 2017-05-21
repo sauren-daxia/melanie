@@ -21,7 +21,7 @@ function makeParentDir(path) {
 }
 
 function pathParse(path) {
-  path = path.toString().replace(/[\s\\*/:?"<>|]/g, '');
+  path = path.toString().replace(/[\s\\*/:?"<>|&()]/g, '');
   if (path.length > 15) {
     path = path.substring(0, 15);
   }

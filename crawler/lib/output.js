@@ -19,8 +19,14 @@ function output(items, callback) {
 
   const path = getPath(items);
   mkdirs(path);
+  let xmlStr;
+  try {
+    xmlStr = builder.buildObject(items).toString();
+  } catch (buildErr) {
+    return callback(new Error('Charset Error'));
+  }
 
-  fs.writeFile(path, builder.buildObject(items).toString(), (err) => {
+  fs.writeFile(path, xmlStr, (err) => {
     if (err) {
       return callback(err);
     }
@@ -28,15 +34,21 @@ function output(items, callback) {
     /* 检测是否为简历 */
     exec(`python module/check.py ${path}`, (stderr, stdout) => {
       if (stderr) {
+        fs.appendFile(configs.negative_file, `${path}\n`, (appendErr) => {
+          if (appendErr) {
+            callback(appendErr);
+          }
+        });
         return callback(stderr);
       }
 
       if (stdout.indexOf('Accuracy = 100%') === -1) {
         fs.appendFile(configs.negative_file, `${path}\n`, (appendErr) => {
           if (appendErr) {
-            return callback(appendErr);
+            callback(appendErr);
           }
         });
+        return;
       }
 
       return callback(null, path);

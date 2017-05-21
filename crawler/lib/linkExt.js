@@ -48,7 +48,13 @@ function linkExt({ html, seed, set }, callback) {
 
     /* 获取链接 */
     let link = linkeq.attr('href');
-    if (!link || link.match(/download|javascript|ico|css/g) || link === '/') {
+    /* 过滤链接 */
+    if (!link || link.match(/download|javascript|ico|css|jump|mailto|pdf|login|\.jsp|\.do|\.php|\.asp/g) || link === '/') {
+      continue;
+    }
+    /* 过滤域名前缀 */
+    const prefix = link.replace('http://', '').split('.')[0];
+    if (prefix.match(/^(g|t|credit|mail|data)$/g)) {
       continue;
     }
     link = url.resolve(seed, link);

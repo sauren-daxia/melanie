@@ -8,12 +8,13 @@ const Link = require('./lib/link');
 const logger = require('./lib/logger')('crawler');
 const output = require('./lib/output');
 const htmlParser = require('./lib/htmlParser');
+const getCharset = require('./lib/charset');
 const linkExt = require('./lib/linkExt');
 const clean = require('./lib/clean');
 const configs = require('./configs');
 
 const csvQueue = async.queue((csvName, csvCb) => {
-  /* TODO remove is callback check */
+  /* TODO remove isCallback check */
   const csv = {
     name: csvName,
     /* 爬取的网页总数 */
@@ -33,19 +34,19 @@ const csvQueue = async.queue((csvName, csvCb) => {
     };
 
     const linkQueue = async.queue((task, callback) => {
-      let options = { uri: task.url };
+      let options = { uri: task.url, maxRedirects: 100 };
 
-      /* TODO check charset */
-      if (task.charset.indexOf('gb') !== -1) {
+      if (task.charset === 'gbk') {
         options = {
           url: task.url,
           encoding: null,
           headers: {
             'Content-Type': 'content=text/html; charset=gbk',
           },
+          maxRedirects: 100,
+          timeout: 3000,
         };
       }
-
       request(options, (err, res, body) => {
         domain.total++;
         if (err) {
@@ -53,41 +54,44 @@ const csvQueue = async.queue((csvName, csvCb) => {
           if (task.times < configs.max_retry_times) {
             linkQueue.push(task);
           }
-          logger.warn(`${task.url} request failed:\n${err}, try ${task.times} times`);
+          logger.warn(`${task.url} request failed:\n${err.message}, try ${task.times} times`);
           return callback();
         }
 
-        // 处理编码问题
-        try {
-          const charset = body.match(/charset="[^"]+"|charset=[^"]+/)[0].replace('charset=', '').replace(/"/, '').toLowerCase();
-          if (task.charset !== charset) {
-            task.charset = charset;
-            linkQueue.push(task);
-            return callback();
+        let html = body;
+        /* 处理charset */
+        const charset = getCharset(html, (charsetErr) => {
+          if (charsetErr) {
+            logger.warn(charsetErr);
           }
-        } catch (e) {
-          logger.warn(`${task.url} read charset failed`);
+        });
+
+        if (task.charset !== charset) {
+          task.charset = charset;
+          linkQueue.push(task);
+          return callback();
         }
 
-        let html = body;
-
-        if (task.charset.indexOf('gb') !== -1) {
+        if (task.charset === 'gbk') {
           html = iconv.decode(body, 'gb2312');
         }
 
-        // 下载
+        /* 保存xml文件 */
         const items = htmlParser(html, (htmlParserErr) => {
-          logger.error(htmlParserErr);
+          logger.warn(`${task.url}: ${htmlParserErr.message}`);
         });
         items.url = task.url;
         items.org = task.org;
         items.href = task.href;
         output(items, (outputErr, xmlPath) => {
           if (err) {
-            return logger.warn(outputErr);
+            return logger.warn(`${task.url}: ${outputErr.message}`);
           }
 
-          logger.debug(`Download ${xmlPath}`);
+          if (!xmlPath) {
+            return;
+          }
+
           domain.download++;
         });
 
@@ -95,13 +99,14 @@ const csvQueue = async.queue((csvName, csvCb) => {
           return callback();
         }
 
+        /* 获取子链接 */
         linkExt({
           html,
           seed: task.url,
           set: cache,
         }, (linkErr, linkRes) => {
           if (linkErr) {
-            return logger.error(linkErr);
+            return logger.warn(`${task.url}: {linkErr.message}`);
           }
 
           const child = new Link({
@@ -115,7 +120,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
           }
         });
         callback();
-      });
+      }).setMaxListeners(0);
     }, configs.link_queue_limit);
 
     /* domain task end when last link task finished */
@@ -152,15 +157,18 @@ const csvQueue = async.queue((csvName, csvCb) => {
   rl.on('line', (line) => {
     domainQueue.push(new Link({
       url: line.split(',')[1],
-      org: `${csv.name.split('/')[1].replace('.csv', '')}-${line.split(',')[0].trim()}`,
+      org: `${csv.name.split('/')[csv.name.split('/').length - 1].replace('.csv', '')}-${line.split(',')[0].trim()}`,
     }));
   });
 }, configs.csv_queue_limit);
 
-/* when the last csv task finished => clean negative xml files */
+/*  clean negative xml files when the last csv task finished */
 csvQueue.drain = () => {
+  logger.info('All task finished, will clean negative files');
   clean(configs.negative_file, (err) => {
-    logger.error(err);
+    if (err) {
+      logger.error(err);
+    }
   });
 };
 

@@ -18,7 +18,7 @@ function clean(path, callback) {
   rl.on('line', (line) => {
     fs.unlink(line, (err) => {
       if (err) {
-        return callback(err);
+        return callback();
       }
     });
   });
