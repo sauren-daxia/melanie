@@ -4,6 +4,17 @@ from random import randrange
 from sklearn.datasets import make_classification
 from sklearn.preprocessing import normalize
 
+"""
+TODO
+1. 分词 ----> 提取特征
+feature
+[f1,f2,f3,f4,...,fn] [label_1]
+[f1,f2,f3,f4,...,fn] [label_2]
+
+txt ===> 分词 ===> add to dict ===> get feature number ===> set feature map ===> add line to feature/label
+2. 特征选择
+"""
+
 
 def distanceNorm(Norm, D_value):
     if Norm == '1':
@@ -80,6 +91,7 @@ def fit(features, labels, iter_ratio):
             np.power(self_features - nearMiss, 2)
     # print weight / (iter_ratio * n_samples)
     return weight / (iter_ratio * n_samples)
+    # return weight
 
 
 def test():
@@ -87,8 +99,16 @@ def test():
     features = normalize(X=features, norm='l2', axis=0)
     for x in xrange(1, 10):
         weight = fit(features, labels, 1)
-        with open('weight', 'a+') as f:
-            f.write(str(weight) + '\n')
+        feature = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+                   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+        feature_sort(weight, feature)
+
+
+def feature_sort(weight, feature):
+    fw = [(f, w) for f, w in zip(feature, weight)]
+    fws = sorted(fw, key=lambda d: d[1], reverse=True)
+    fs = ','.join([d[0] for d in fws])
+    print fs
 
 
 if __name__ == '__main__':

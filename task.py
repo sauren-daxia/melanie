@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-   task
-   ~~~~
-
-   批处理任务
-
-   :author: xy
+批处理任务
 """
 import os
 import argparse
 from libs import log
-from libs import xml_tools
-from libs import svm_tools
+from libs import xmltools
+from libs import svmtools
 
 #: 默认输出路径
 DEFAULT_OUTPUT_DIR = 'data/svm/out'
@@ -86,7 +81,8 @@ logger = log.get_logger('task')
 
 def xml2txt():
     """将xml文件转换为txt文件"""
-    logger.info('start: xml2txt; xml: {0}; out: {1}'.format(SYS_ARGS.xml, SYS_ARGS.out))
+    logger.info('start: xml2txt; xml: {0}; out: {1}'.format(
+        SYS_ARGS.xml, SYS_ARGS.out))
     total_count = 0
     sucess_count = 0
     for root, dirs, files in os.walk(SYS_ARGS.xml):
@@ -96,16 +92,18 @@ def xml2txt():
             total_count += 1
             xml_file = os.path.join(root, f)
             try:
-                xml_tools.xml2txt(xml_file, SYS_ARGS.out, SYS_ARGS.ann)
+                xmltools.xml2txt(xml_file, SYS_ARGS.out, SYS_ARGS.ann)
                 sucess_count += 1
             except Exception as e:
                 logger.error(xml_file + ': ' + repr(e))
-    logger.info('end: xml2txt; sucess: {0}/{1}'.format(sucess_count, total_count))
+    logger.info(
+        'end: xml2txt; sucess: {0}/{1}'.format(sucess_count, total_count))
 
 
 def txt2svm():
     """将txt文件转换为libsvm scale文件"""
-    logger.info('start: txt2svm; txt: {0}; scale: {1}'.format(SYS_ARGS.txt, SYS_ARGS.file))
+    logger.info('start: txt2svm; txt: {0}; scale: {1}'.format(
+        SYS_ARGS.txt, SYS_ARGS.file))
     total_count = 0
     sucess_count = 0
     scale_str = ''
@@ -118,7 +116,7 @@ def txt2svm():
             total_count += 1
             txt_file = os.path.join(root, f)
             try:
-                line = svm_tools.convert2libsvm(txt_file, SYS_ARGS.tag)
+                line = svmtools.convert2libsvm(txt_file, SYS_ARGS.tag)
                 if not scale_str == '':
                     scale_str += '\n'
                     file_str += '\n'
@@ -131,12 +129,14 @@ def txt2svm():
         f.write(scale_str)
     with open(list_file, 'w') as f:
         f.write(file_str)
-    logger.info('end: txt2svm; sucess: {0}/{1}'.format(sucess_count, total_count))
+    logger.info(
+        'end: txt2svm; sucess: {0}/{1}'.format(sucess_count, total_count))
 
 
 def predict():
     """输出预测结果"""
-    logger.info('start: predict; list: {0}; result: {1}; output: {2}'.format(SYS_ARGS.list, SYS_ARGS.result, SYS_ARGS.file))
+    logger.info('start: predict; list: {0}; result: {1}; output: {2}'.format(
+        SYS_ARGS.list, SYS_ARGS.result, SYS_ARGS.file))
     with open(SYS_ARGS.list, 'r') as f:
         file_list = f.readlines()
     with open(SYS_ARGS.result, 'r') as f:
@@ -148,16 +148,19 @@ def predict():
     with open(SYS_ARGS.file, 'a+') as f:
         for i in range(total_count):
             try:
-                f.write('{0},{1}\n'.format(file_list[i].strip(), resultes[i].strip()))
+                f.write('{0},{1}\n'.format(
+                    file_list[i].strip(), resultes[i].strip()))
                 sucess_count += 1
             except Exception as e:
                 logger.error(str(i) + ': ' + file_list[i] + ': ' + repr(e))
-    logger.info('end: predict; sucess: {0}/{1}'.format(sucess_count, total_count))
+    logger.info(
+        'end: predict; sucess: {0}/{1}'.format(sucess_count, total_count))
 
 
 def xml2map():
     """获取词频"""
-    logger.info('start: xml2map; map: {0}; output: {1}'.format(SYS_ARGS.list,SYS_ARGS.file))
+    logger.info('start: xml2map; map: {0}; output: {1}'.format(
+        SYS_ARGS.list, SYS_ARGS.file))
     total_count = 0
     sucess_count = 0
     map_list = []
@@ -168,12 +171,13 @@ def xml2map():
             total_count += 1
             xml_file = os.path.join(root, f)
             try:
-                map_list = xml_tools.xml2map(xml_file, map_list)
+                map_list = xmltools.xml2map(xml_file, map_list)
                 sucess_count += 1
             except Exception as e:
                 print xml_file + repr(e)
-    xml_tools.output(map_list, SYS_ARGS.file)
-    logger.info('end: xml2map; sucess: {0}/{1}'.format(sucess_count, total_count))
+    xmltools.output(map_list, SYS_ARGS.file)
+    logger.info(
+        'end: xml2map; sucess: {0}/{1}'.format(sucess_count, total_count))
 
 
 def main():

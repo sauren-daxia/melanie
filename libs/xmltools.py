@@ -61,7 +61,7 @@ def xml2txt(xml_file, output_dir, if_ann=False):
 def list2map(word_list, map_list=[]):
     """词汇列表 => 词频映射"""
     # 去重
-    word_list = [word for word in set(word_list)] 
+    word_list = [word for word in set(word_list)]
     for word in word_list:
         word = word.encode('utf-8')
         if word.strip() == '' or word == ',':
