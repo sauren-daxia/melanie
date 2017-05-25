@@ -16,36 +16,44 @@ function getCharset(html, callback) {
   let content;
   /* 检查是否是正常的html文本，如果是zip或其他文件会抛出异常 */
   try {
+    /* default rule: [charset] attr: charset*/
     content = $('[charset]');
+    if (content && content.length !== 0) {
+      isOk = true;
+      charset = content.eq(0).attr('charset');
+    }
   } catch (e) {
-      callback(e);
-      return charset;
+    callback(e);
+    return charset;
   }
 
-  if (!content || content.length === 0) {
+  /* rule: [http-equiv=Content-Type] attr: content */
+  if (!isOk) {
     content = $('[http-equiv=Content-Type]');
-  } else {
-    isOk = true;
-    charset = content.eq(0).attr('charset');
+    if (content && content.length !== 0) {
+      isOk = true;
+      charset = content.eq(0).attr('content');
+    }
   }
 
-  if (!content || content.length === 0) {
+  /* rule: [http-equiv=content-type] attr: content */
+  if (!isOk) {
     content = $('[http-equiv=content-type]');
-  } else if(!isOk) {
-    isOk = true;
-    charset = content.eq(0).attr('content');
+    if (content && content.length !== 0) {
+      isOk = true;
+      charset = content.eq(0).attr('content');
+    }
   }
 
-  if (!content || content.length === 0) {
-    callback(new Error('no rule to get charset'));
+  /* use default charset */
+  if (!isOk) {
+    callback(new Error('No suitable rule'));
     return configs.default_charset;
-  } else if(!isOk) {
-    charset = content.eq(0).attr('content');
   }
 
-  if(!charset){
-      callback(new Error('no charset'));
-      return configs.default_charset;
+  if (!charset) {
+    callback(new Error('Rule is suitable'));
+    return configs.default_charset;
   }
 
   if (charset.toLowerCase().indexOf('gb') !== -1) {

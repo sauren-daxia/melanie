@@ -1,6 +1,4 @@
 # setUp
 rm -rf /tmp/negativeFile
-# rm -rf download
-# rm -rf logs
 # start
-node init.js
+node --max--old-space-size=4096 init.js

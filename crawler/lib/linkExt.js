@@ -29,8 +29,39 @@ function linkExt({ html, seed, set }, callback) {
     return length;
   }
 
+  function filter(link, href) {
+    /* 过滤链接 */
+    if (!link || link.match(/download|javascript|ico|css|jump|mailto|pdf|login|\.jsp|\.do|\.php|\.asp/g) || link === '/') {
+      return;
+    }
+    /* 过滤域名前缀 */
+    const prefix = link.replace('http://', '').split('.')[0];
+    if (prefix.match(/^(g|t|credit|mail|data)$/g)) {
+      return;
+    }
+    link = url.resolve(seed, link);
+    link = link.replace('#', '');
+    if (set.has(link)) {
+      return;
+    }
+    set.add(link);
+    length++;
+    callback(null, { link, href });
+  }
+
+  /* 处理 document.location 跳转 */
+  const doc = $.text();
+  const infos = doc.match(/document\.location[\s]*=[\s]*['"]+[^"']+['"]+/g);
+  infos.forEach((info) => {
+    const href = 'document';
+    const link = info.match(/[\s]*['"]+([^"']+)['"]+/)[1];
+    filter(link, href);
+  });
+
   for (let i = 0; i < links.length; i++) {
     const linkeq = links.eq(i);
+    /* 获取链接 */
+    const link = linkeq.attr('href');
     /* 获取链接描述 */
     let href;
     href = linkeq.text();
@@ -46,25 +77,7 @@ function linkExt({ html, seed, set }, callback) {
       continue;
     }
 
-    /* 获取链接 */
-    let link = linkeq.attr('href');
-    /* 过滤链接 */
-    if (!link || link.match(/download|javascript|ico|css|jump|mailto|pdf|login|\.jsp|\.do|\.php|\.asp/g) || link === '/') {
-      continue;
-    }
-    /* 过滤域名前缀 */
-    const prefix = link.replace('http://', '').split('.')[0];
-    if (prefix.match(/^(g|t|credit|mail|data)$/g)) {
-      continue;
-    }
-    link = url.resolve(seed, link);
-    link = link.replace('#', '');
-    if (set.has(link)) {
-      continue;
-    }
-    set.add(link);
-    length++;
-    callback(null, { link, href });
+    callback(link, href);
   }
 
   return length;
