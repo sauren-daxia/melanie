@@ -96,6 +96,7 @@ def fit(features, labels, iter_ratio):
 
 def test():
     (features, labels) = make_classification(n_samples=500)
+    print type(labels)
     features = normalize(X=features, norm='l2', axis=0)
     for x in xrange(1, 10):
         weight = fit(features, labels, 1)

@@ -5,7 +5,7 @@
 import os
 import argparse
 from libs import log
-from libs import xmltools
+from libs import 0
 from libs import svmtools
 
 #: 默认输出路径

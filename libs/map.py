@@ -15,9 +15,13 @@ class FeatureMap(object):
         return len(self.set)
 
     def __str__(self):
-        f_str = ''
+        map = []
         for f in self.set:
-            f_str += '{0},{1}\n'.format(base64.b64decode(f), self.dict[f])
+            map.append((base64.b64decode(f), self.dict[f]))
+        map = sorted(map, key=lambda d: d[1])
+        f_str = ''
+        for i in range(len(map)):
+            f_str += '{0[0]},{0[1]}\n'.format(map[i])
         return f_str[:-1]
 
     def __repr__(self):
@@ -33,10 +37,10 @@ class FeatureMap(object):
             self.dict[word_b64] = code
             return code
 
-    def load(self, map_file):
-        if not os.path.exists(map_file):
+    def load(self, file_name):
+        if not os.path.exists(file_name):
             raise NameError('no such file')
-        with open(map_file, 'r') as f:
+        with open(file_name, 'r') as f:
             lines = f.readlines()
         for line in lines:
             try:
