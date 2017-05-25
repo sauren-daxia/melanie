@@ -1,7 +1,7 @@
 const assert = require('assert');
 const request = require('request');
 const linkExt = require('../lib/linkExt');
-const logger = require('../lib/logger')('test-linkExt');
+const logger = require('../lib/logger')('test');
 
 const cache = new Set();
 

@@ -1,7 +1,7 @@
 const assert = require('assert');
 const request = require('request');
 const getCharset = require('../lib/charset');
-const logger = require('../lib/logger')('test-htmlParser');
+const logger = require('../lib/logger')('test');
 
 function testCharset(options, callback) {
   request(options, (err, res, body) => {
@@ -22,11 +22,17 @@ function testCharset(options, callback) {
 }
 
 
-// const resumeOptions = { uri: 'http://www.mlr.gov.cn/zwgk/ldzc/jdm/' };
-const charsetOptions = { uri: 'http://f.mlr.gov.cn/' };
-// testCharset(resumeOptions, (charset) => {
+// const charsetOptions = { uri: 'http://f.mlr.gov.cn/' };
+// const charsetOptions = { uri: 'http://www.baidu.com' };
+// const charsetOptions = { uri: 'http://egov.mofcom.gov.cn' };
+// const charsetOptions = { uri: 'http://wmsw.mofcom.gov.cn/wmsw/' }; /* no rule */
+// const charsetOptions = { uri: 'http://www.shmzw.gov.cn/' }; /* no rule */
+const charsetOptions = { uri: 'http://www.shmzw.gov.cn/gb/mzw/index.html' }; /* gbk */
+
+testCharset(charsetOptions, (charset) => {
+    console.log(charset);
+});
+
+// testCharset(optionB, (charset) => {
 //  assert.notEqual('test', charset);
 // });
-testCharset(charsetOptions, (charset) => {
-  assert.notEqual('test', charset);
-});

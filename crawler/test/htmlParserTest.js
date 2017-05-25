@@ -1,7 +1,7 @@
 const assert = require('assert');
 const request = require('request');
 const htmlParser = require('../lib/htmlParser');
-const logger = require('../lib/logger')('test-htmlParser');
+const logger = require('../lib/logger')('test');
 
 function testHtmlParser(options, callback) {
   request(options, (err, res, body) => {

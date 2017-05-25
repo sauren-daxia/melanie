@@ -5,6 +5,7 @@ const cheerio = require('cheerio');
 const configs = require('../configs');
 
 function getCharset(html, callback) {
+  let isOk = false;
   let charset = configs.default_charset;
   if (!html) {
     callback(new Error('Undefined html'));
@@ -15,20 +16,36 @@ function getCharset(html, callback) {
   let content;
   /* 检查是否是正常的html文本，如果是zip或其他文件会抛出异常 */
   try {
-    content = $('[http-equiv=Content-Type]');
+    content = $('[charset]');
   } catch (e) {
-    callback(e);
-    return charset;
+      callback(e);
+      return charset;
   }
 
   if (!content || content.length === 0) {
-    content = $('[charset]');
-    if (!content || content.length === 0) {
-      return charset;
-    }
-    charset = content.attr('charset');
+    content = $('[http-equiv=Content-Type]');
   } else {
-    charset = content.attr('content');
+    isOk = true;
+    charset = content.eq(0).attr('charset');
+  }
+
+  if (!content || content.length === 0) {
+    content = $('[http-equiv=content-type]');
+  } else if(!isOk) {
+    isOk = true;
+    charset = content.eq(0).attr('content');
+  }
+
+  if (!content || content.length === 0) {
+    callback(new Error('no rule to get charset'));
+    return configs.default_charset;
+  } else if(!isOk) {
+    charset = content.eq(0).attr('content');
+  }
+
+  if(!charset){
+      callback(new Error('no charset'));
+      return configs.default_charset;
   }
 
   if (charset.toLowerCase().indexOf('gb') !== -1) {

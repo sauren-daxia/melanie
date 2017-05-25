@@ -47,6 +47,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
           timeout: 3000,
         };
       }
+
       request(options, (err, res, body) => {
         domain.total++;
         if (err) {
@@ -54,7 +55,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
           if (task.times < configs.max_retry_times) {
             linkQueue.push(task);
           }
-          logger.warn(`${task.url} request failed:\n${err.message}, try ${task.times} times`);
+          logger.warn(`${task.url} request failed: ${err.message}, try ${task.times} times`);
           return callback();
         }
 
@@ -62,7 +63,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
         /* 处理charset */
         const charset = getCharset(html, (charsetErr) => {
           if (charsetErr) {
-            logger.warn(charsetErr);
+            logger.warn(`${task.url} get charset failed: ${charsetErr.message}`);
           }
         });
 
@@ -78,14 +79,14 @@ const csvQueue = async.queue((csvName, csvCb) => {
 
         /* 保存xml文件 */
         const items = htmlParser(html, (htmlParserErr) => {
-          logger.warn(`${task.url}: ${htmlParserErr.message}`);
+          logger.warn(`${task.url} html parse failed: ${htmlParserErr.message}`);
         });
         items.url = task.url;
         items.org = task.org;
         items.href = task.href;
         output(items, (outputErr, xmlPath) => {
           if (err) {
-            return logger.warn(`${task.url}: ${outputErr.message}`);
+            return logger.warn(`${task.url} output failed: ${outputErr.message}`);
           }
 
           if (!xmlPath) {
@@ -106,7 +107,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
           set: cache,
         }, (linkErr, linkRes) => {
           if (linkErr) {
-            return logger.warn(`${task.url}: {linkErr.message}`);
+            return logger.warn(`${task.url} get links failed: ${linkErr.message}`);
           }
 
           const child = new Link({

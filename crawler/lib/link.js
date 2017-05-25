@@ -33,9 +33,9 @@ class Link {
     }
 
     /* 归一化， 补全链接末尾的'/' */
-    if (this.url.indexOf('htm') === -1 && this.url[this.url.length - 1] !== '/') {
-      this.url += '/';
-    }
+    // if (this.url.indexOf('htm') === -1 && this.url[this.url.length - 1] !== '/') {
+    //  this.url += '/';
+    // }
   }
 }
 

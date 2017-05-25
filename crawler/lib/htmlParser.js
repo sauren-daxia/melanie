@@ -45,8 +45,12 @@ function htmlParser(html, callback) {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines.eq(i).text().replace(/\s/g, '');
-    if (line.length > 0) {
-      items.resume += `${line}\n`;
+    try{
+      if (line.length !== 0) {
+        items.resume += `${line}\n`;
+      }
+    } catch (e){
+      callback(new Error(`invaild line`)); 
     }
   }
 
