@@ -55,7 +55,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
           if (task.times < configs.max_retry_times) {
             linkQueue.push(task);
           }
-          logger.warn(`${task.url} request failed: ${err.message}, try ${task.times} times`);
+          logger.debug(`${task.url} request failed: ${err.message}, try ${task.times} times`);
           return callback();
         }
 

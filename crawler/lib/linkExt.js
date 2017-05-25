@@ -1,5 +1,6 @@
 const url = require('url');
 const cheerio = require('cheerio');
+const logger = require('./logger')('linkExt');
 
 /**
  * 获取链接
@@ -31,11 +32,20 @@ function linkExt({ html, seed, set }, callback) {
 
   function filter(link, href) {
     /* 过滤链接 */
-    if (!link || link.match(/download|javascript|ico|css|jump|mailto|pdf|login|\.jsp|\.do|\.php|\.asp/g) || link === '/') {
+    if (!link || link.match(/download|javascript|jump|mailto|login/g) || link === '/') {
       return;
     }
+    /* 过滤后缀 要求含htm */
+    let ext = link.replace('http://', '').replace('https://', '').split('/');
+    if (ext.length > 1) {
+      ext = ext[ext.length - 1].match(/[^.]*\.([^.]+)/);
+      if (ext && ext[1].indexOf('htm') === -1) {
+        logger.debug(`skip: ${link}, ext: ${ext[1]}`);
+        return;
+      }
+    }
     /* 过滤域名前缀 */
-    const prefix = link.replace('http://', '').split('.')[0];
+    const prefix = link.replace('http://', '').replace('https://', '').split('.')[0];
     if (prefix.match(/^(g|t|credit|mail|data)$/g)) {
       return;
     }
@@ -52,11 +62,13 @@ function linkExt({ html, seed, set }, callback) {
   /* 处理 document.location 跳转 */
   const doc = $.text();
   const infos = doc.match(/document\.location[\s]*=[\s]*['"]+[^"']+['"]+/g);
-  infos.forEach((info) => {
-    const href = 'document';
-    const link = info.match(/[\s]*['"]+([^"']+)['"]+/)[1];
-    filter(link, href);
-  });
+  if (infos) {
+    infos.forEach((info) => {
+      const href = 'document';
+      const link = info.match(/[\s]*['"]+([^"']+)['"]+/)[1];
+      filter(link, href);
+    });
+  }
 
   for (let i = 0; i < links.length; i++) {
     const linkeq = links.eq(i);
@@ -77,7 +89,7 @@ function linkExt({ html, seed, set }, callback) {
       continue;
     }
 
-    callback(link, href);
+    filter(link, href);
   }
 
   return length;

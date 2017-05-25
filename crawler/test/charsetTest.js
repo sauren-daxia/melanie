@@ -27,10 +27,11 @@ function testCharset(options, callback) {
 // const charsetOptions = { uri: 'http://egov.mofcom.gov.cn' };
 // const charsetOptions = { uri: 'http://wmsw.mofcom.gov.cn/wmsw/' }; /* no rule */
 // const charsetOptions = { uri: 'http://www.shmzw.gov.cn/' }; /* no rule */
-const charsetOptions = { uri: 'http://www.shmzw.gov.cn/gb/mzw/index.html' }; /* gbk */
+// const charsetOptions = { uri: 'http://www.shmzw.gov.cn/gb/mzw/index.html' }; /* gbk */
+const charsetOptions = { uri: 'http://manage.mofcom.gov.cn/article/shehsj/' };
 
 testCharset(charsetOptions, (charset) => {
-    console.log(charset);
+  console.log(charset);
 });
 
 // testCharset(optionB, (charset) => {

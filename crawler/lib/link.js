@@ -32,10 +32,8 @@ class Link {
       this.href = obj.href;
     }
 
-    /* 归一化， 补全链接末尾的'/' */
-    // if (this.url.indexOf('htm') === -1 && this.url[this.url.length - 1] !== '/') {
-    //  this.url += '/';
-    // }
+    /* 处理异常后缀 */
+    this.url.replace(/\.shtml.+/, '.shtml');
   }
 }
 
