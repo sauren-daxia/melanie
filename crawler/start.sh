@@ -1,4 +1,4 @@
 # setUp
-rm -rf /tmp/negativeFile
+rm -rf /tmp/*.negative
 # start
-node --max-old-space-size=4096 init.js
+node --max-old-space-size=4096 crawler.js
