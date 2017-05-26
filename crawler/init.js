@@ -142,7 +142,7 @@ const csvQueue = async.queue((csvName, csvCb) => {
   domainQueue.drain = () => {
     if (!csv.isCallback) {
       csv.isCallback = true;
-      logger.info(`csv task ${csv.name} is FINISHED; download ${csv.download}/${csv.total}`);
+      logger.info(`csv task ${csv.name} is FINISHED; download ${csv.download}/${csv.total}; queue ${csvQueue.running()}/${csvQueue.length()}`);
       csvCb();
     }
   };

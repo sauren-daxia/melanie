@@ -1,5 +1,5 @@
 const configs = {
-  csv_dir: 'data/csv_0', // csv文件所在文件夹
+  csv_dir: 'data/csv_1', // csv文件所在文件夹
   max_depth: 2, // 最大下载深度
   max_retry_times: 2, // 最大下载次数
   csv_queue_limit: 4, // csv queue concurrency

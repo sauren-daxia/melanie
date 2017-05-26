@@ -63,7 +63,7 @@ data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_
 data/svm/test/txt/data_svm_test_xml_广东_﻿省府办公厅_李春生.txt,1
 data/svm/test/txt/data_svm_test_xml_甘肃_省林业厅_信息公开.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省国资委_华泰证券.txt,-1
-data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_王亚男.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_王亚男.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_民政厅_网上咨询.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省环境保护厅_丛丽.txt,1
 data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_景点分布.txt,-1
@@ -81,7 +81,7 @@ data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_旅行社名
 data/svm/test/txt/data_svm_test_xml_湖北_﻿湖北省发展和改革委员会_电力调度处.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省交通运输厅_公示.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_顾国权.txt,1
-data/svm/test/txt/data_svm_test_xml_青海_省教育厅_教学点今昔.txt,1
+data/svm/test/txt/data_svm_test_xml_青海_省教育厅_教学点今昔.txt,-1
 data/svm/test/txt/data_svm_test_xml_山东_山东省商务厅_咨询.txt,-1
 data/svm/test/txt/data_svm_test_xml_北京_市科委_文字实录.txt,-1
 data/svm/test/txt/data_svm_test_xml_商务部_贸易救济局_图片新闻.txt,-1
@@ -91,9 +91,9 @@ data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_图片新闻
 data/svm/test/txt/data_svm_test_xml_新疆_自治区民族语言文字工作委员会_张树山.txt,1
 data/svm/test/txt/data_svm_test_xml_河北_省民族宗教事务厅_赵明远.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_经济.txt,-1
-data/svm/test/txt/data_svm_test_xml_江西_省卫生计生委_首页.txt,1
+data/svm/test/txt/data_svm_test_xml_江西_省卫生计生委_首页.txt,-1
 data/svm/test/txt/data_svm_test_xml_河北_省住房和城乡建设厅_图解.txt,-1
-data/svm/test/txt/data_svm_test_xml_湖南_湖南省人民政府办公厅_湘潭大学.txt,1
+data/svm/test/txt/data_svm_test_xml_湖南_湖南省人民政府办公厅_湘潭大学.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_姜万中.txt,1
 data/svm/test/txt/data_svm_test_xml_吉林_省外办_韩国铁原郡.txt,-1
 data/svm/test/txt/data_svm_test_xml_陕西_省民政厅_机构设置.txt,-1
@@ -105,7 +105,7 @@ data/svm/test/txt/data_svm_test_xml_河北_省住房和城乡建设厅_（二级
 data/svm/test/txt/data_svm_test_xml_广西_旅游发展委员会_经济.txt,-1
 data/svm/test/txt/data_svm_test_xml_宁夏_自治区商务厅_两个清单.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省国资委_在线访谈.txt,-1
-data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_王莹莹.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_王莹莹.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区财政厅_王春播.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_政策法规.txt,-1
 data/svm/test/txt/data_svm_test_xml_江西_省交通运输厅_陈兵.txt,1
@@ -118,7 +118,7 @@ data/svm/test/txt/data_svm_test_xml_重庆_重庆煤监局_公开指南.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省水利厅_[详细].txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省贸促会.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省水利厅_郑在洲.txt,1
-data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_杨懂艳.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_杨懂艳.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省水利厅_意见征集.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省文化厅_裴旭.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_公众参与.txt,-1
@@ -142,7 +142,7 @@ data/svm/test/txt/data_svm_test_xml_重庆_市统计局_工作动态.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区教育厅_依申请公开.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省商务厅_矿产资源.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_乔弘志.txt,1
-data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_邹首民.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_邹首民.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_外事侨务办_贝利市.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_人事信息.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_发改委_办事指南.txt,-1
@@ -270,7 +270,7 @@ data/svm/test/txt/data_svm_test_xml_重庆_市信访办_余云勇.txt,1
 data/svm/test/txt/data_svm_test_xml_重庆_市统计局_统计微讯.txt,-1
 data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_省地税局.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_[全部].txt,-1
-data/svm/test/txt/data_svm_test_xml_山西_外事侨务办_北威州.txt,1
+data/svm/test/txt/data_svm_test_xml_山西_外事侨务办_北威州.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_美大处.txt,-1
 data/svm/test/txt/data_svm_test_xml_吉林_省外办_收费标准.txt,-1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区水利厅_水利质安.txt,-1
@@ -280,14 +280,14 @@ data/svm/test/txt/data_svm_test_xml_北京_市发展改革委_高等教育.txt,-
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_详细.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省民政厅_陈丽华.txt,1
 data/svm/test/txt/data_svm_test_xml_卫生部_办公厅_热点提示.txt,-1
-data/svm/test/txt/data_svm_test_xml_教育部_离退休干部局_英雄梁雷.txt,1
+data/svm/test/txt/data_svm_test_xml_教育部_离退休干部局_英雄梁雷.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市环保局_领导简介.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省住房和城乡建设厅_通知.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_信件查询.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省国资委_江苏水源.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_发言人谈话.txt,-1
 data/svm/test/txt/data_svm_test_xml_陕西_省文化厅_厅领导.txt,1
-data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_韩杰.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_韩杰.txt,-1
 data/svm/test/txt/data_svm_test_xml_江西_省交通运输厅_会昌服务区.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省旅游发展委员会_领导之窗.txt,1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区环境保护厅_张俭.txt,1
@@ -307,11 +307,11 @@ data/svm/test/txt/data_svm_test_xml_广东_省国资委_李成.txt,1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_水电协会.txt,-1
 data/svm/test/txt/data_svm_test_xml_北京_市园林绿化局_义务植树.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市统计局_数据解读.txt,-1
-data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_蓝文陆.txt,1
-data/svm/test/txt/data_svm_test_xml_福建_省民政厅_访谈汇总.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_蓝文陆.txt,-1
+data/svm/test/txt/data_svm_test_xml_福建_省民政厅_访谈汇总.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省商务厅_厅党组文件.txt,-1
 data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_曲格平.txt,-1
-data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_姚轶.txt,1
+data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_姚轶.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市地震局_重庆地震台.txt,-1
 data/svm/test/txt/data_svm_test_xml_浙江_省林业厅_林业概况.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省水利厅_陈杰.txt,1
@@ -358,7 +358,7 @@ data/svm/test/txt/data_svm_test_xml_国防部_权威发布_招飞.txt,-1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区人力资源社会保障厅_蔡宜田.txt,1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_直属单位.txt,-1
 data/svm/test/txt/data_svm_test_xml_广西_农业厅_投诉举报.txt,-1
-data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_吴晓森.txt,1
+data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_吴晓森.txt,-1
 data/svm/test/txt/data_svm_test_xml_广东_省国资委_刘小龙.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_敖鸿.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省外办_调查情况.txt,-1
@@ -389,7 +389,7 @@ data/svm/test/txt/data_svm_test_xml_山东_山东省交通运输厅_在线访谈
 data/svm/test/txt/data_svm_test_xml_青海_省审计厅_祁维民.txt,1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区商务厅_刘斌.txt,1
 data/svm/test/txt/data_svm_test_xml_广东_﻿省府办公厅_陈云贤.txt,1
-data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_省金融办.txt,1
+data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_省金融办.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_人事信息.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市统计局_发布日程.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市统计局_执法抽查.txt,-1
@@ -406,7 +406,7 @@ data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_省商务厅.tx
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省教育厅_教育概览.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省民政厅_蔡仲爱.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省国资委_省属企业.txt,-1
-data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_龙煤集团.txt,1
+data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_龙煤集团.txt,-1
 data/svm/test/txt/data_svm_test_xml_吉林_省农委_老程入社.txt,-1
 data/svm/test/txt/data_svm_test_xml_河北_省农业厅_更多.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省商务厅_通知公告.txt,-1
@@ -481,7 +481,7 @@ data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_黄润秋.txt,1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区财政厅_教科文处.txt,-1
 data/svm/test/txt/data_svm_test_xml_北京_市政府侨办_领导简介.txt,1
 data/svm/test/txt/data_svm_test_xml_广西_民政厅_报表下载.txt,-1
-data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_孟刚.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_孟刚.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省国资委_蔡荣国.txt,1
 data/svm/test/txt/data_svm_test_xml_湖南_湖南省人民政府办公厅_老司城.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市交委_2.txt,1
@@ -505,7 +505,7 @@ data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_江桂斌.txt,1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_西江水系.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省环境保护厅_国内环保.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_领导之窗.txt,1
-data/svm/test/txt/data_svm_test_xml_新疆_自治区财政厅_会计处.txt,1
+data/svm/test/txt/data_svm_test_xml_新疆_自治区财政厅_会计处.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_新闻动态.txt,-1
 data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_江泽慧.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省卫生计生委_新闻发布会.txt,-1
@@ -527,7 +527,7 @@ data/svm/test/txt/data_svm_test_xml_山西_外事侨务办_大牟田市.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_乡村旅游.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省环境保护厅_政府网站.txt,-1
 data/svm/test/txt/data_svm_test_xml_江西_省交通运输厅_年.txt,-1
-data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_特色文化.txt,1
+data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_特色文化.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省人社厅_高榕.txt,1
 data/svm/test/txt/data_svm_test_xml_江西_省农业厅_稻花香里.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省海洋渔业厅_在线访谈.txt,-1
@@ -556,11 +556,11 @@ data/svm/test/txt/data_svm_test_xml_重庆_市环保局_详细.txt,-1
 data/svm/test/txt/data_svm_test_xml_山东_山东省发展和改革委员会_齐鲁周刊社.txt,-1
 data/svm/test/txt/data_svm_test_xml_广西_农业厅_关建勋.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省水利厅_黄明聪.txt,1
-data/svm/test/txt/data_svm_test_xml_福建_省民政厅_更多+.txt,1
+data/svm/test/txt/data_svm_test_xml_福建_省民政厅_更多+.txt,-1
 data/svm/test/txt/data_svm_test_xml_湖南_湖南省人民政府办公厅_齐白石故居.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市商务委_曾诚.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_王黎明.txt,1
-data/svm/test/txt/data_svm_test_xml_重庆_市监察局_清明俊波.txt,1
+data/svm/test/txt/data_svm_test_xml_重庆_市监察局_清明俊波.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省水利厅_王铁.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省水利厅_我要写信.txt,-1
 data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_黄克旭.txt,-1
@@ -571,8 +571,8 @@ data/svm/test/txt/data_svm_test_xml_重庆_市信访办_肖应祥.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省卫生计生委_新闻中心.txt,-1
 data/svm/test/txt/data_svm_test_xml_教育部_职业教育与成人教育司_司领导.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省商务厅_走进商务厅.txt,-1
-data/svm/test/txt/data_svm_test_xml_宁夏_自治区环境保护厅_无悔的选择.txt,1
-data/svm/test/txt/data_svm_test_xml_山东_山东省海洋与渔业厅_王仁堂.txt,1
+data/svm/test/txt/data_svm_test_xml_宁夏_自治区环境保护厅_无悔的选择.txt,-1
+data/svm/test/txt/data_svm_test_xml_山东_山东省海洋与渔业厅_王仁堂.txt,-1
 data/svm/test/txt/data_svm_test_xml_教育部_思想政治工作司_第7次.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省司法厅_卢庆祥.txt,1
 data/svm/test/txt/data_svm_test_xml_江西_省交通运输厅_横市服务区.txt,-1
@@ -581,7 +581,7 @@ data/svm/test/txt/data_svm_test_xml_福建_省民政厅_方少雄.txt,1
 data/svm/test/txt/data_svm_test_xml_重庆_重庆煤监局_主要职能.txt,-1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_综合要闻.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_法律法规.txt,-1
-data/svm/test/txt/data_svm_test_xml_新疆_自治区人力资源和社会保障厅_侠义尤太忠.txt,1
+data/svm/test/txt/data_svm_test_xml_新疆_自治区人力资源和社会保障厅_侠义尤太忠.txt,-1
 data/svm/test/txt/data_svm_test_xml_湖北_﻿湖北省发展和改革委员会_图片新闻.txt,-1
 data/svm/test/txt/data_svm_test_xml_天津_天津市人民政府办公厅_首页.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区环境保护厅_视频中心.txt,-1
@@ -596,7 +596,7 @@ data/svm/test/txt/data_svm_test_xml_山西_外事侨务办_科研教育.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_交流.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省国资委_徐郭平.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省科技厅_往期回顾.txt,-1
-data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_赵晓丽.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_行政体制与人事司_赵晓丽.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_导游考试.txt,-1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区住房城乡建设厅_执业注册.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_人事处.txt,-1
@@ -678,7 +678,7 @@ data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_环评管理
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_政策解读.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区经济和信息化委员会_在线访谈.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省工信委_委领导.txt,-1
-data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省文化厅.txt,1
+data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省文化厅.txt,-1
 data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_省外办.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_求职补贴.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省农委_公示.txt,-1
@@ -700,7 +700,7 @@ data/svm/test/txt/data_svm_test_xml_贵州_省科技厅（省知识产权局）_
 data/svm/test/txt/data_svm_test_xml_山西_农业厅_张红星.txt,1
 data/svm/test/txt/data_svm_test_xml_安徽_省财政厅_吴天宏.txt,1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_新闻发言人.txt,-1
-data/svm/test/txt/data_svm_test_xml_浙江_省发展改革委_周丹.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省发展改革委_周丹.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区发展和改革委员会_程建军.txt,1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区环境保护厅_请销假制度.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省环境保护厅_王慧杰.txt,1
@@ -736,7 +736,7 @@ data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_辐射.txt,-
 data/svm/test/txt/data_svm_test_xml_江西_省交通运输厅_杜继涛.txt,1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省水利厅_张春松.txt,1
 data/svm/test/txt/data_svm_test_xml_重庆_市交委_5.txt,1
-data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_陈君石.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_陈君石.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区财政厅_张小庚.txt,1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区住房城乡建设厅_日喀则.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省人社厅_王强.txt,1
@@ -749,7 +749,7 @@ data/svm/test/txt/data_svm_test_xml_江西_省交通运输厅_谢德强.txt,1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区人力资源社会保障厅_王志强.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省商务厅_国际合作.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省民政厅_张自力.txt,1
-data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省粮食局.txt,1
+data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省粮食局.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_杨占忠.txt,1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区财政厅_监管关注函.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_环保大事记.txt,-1
@@ -792,7 +792,7 @@ data/svm/test/txt/data_svm_test_xml_黑龙江_省公安厅_重点领域.txt,-1
 data/svm/test/txt/data_svm_test_xml_发改委_体改司_领导致辞.txt,-1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_水资源保护.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_林业动态.txt,-1
-data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_领导小组.txt,1
+data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_领导小组.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省民宗委_2.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省文化厅_王春生.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_贵州林情.txt,-1
@@ -801,7 +801,7 @@ data/svm/test/txt/data_svm_test_xml_广西_外事侨务办_科研教育.txt,-1
 data/svm/test/txt/data_svm_test_xml_甘肃_省文化厅_杨建仁.txt,1
 data/svm/test/txt/data_svm_test_xml_湖北_湖北省卫生和计划生育委员会_委领导.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省水利厅_统计数据.txt,-1
-data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_孙鸿烈.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_孙鸿烈.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_崔文德.txt,1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_许其亮.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省审计厅_机构概况.txt,-1
@@ -839,7 +839,7 @@ data/svm/test/txt/data_svm_test_xml_陕西_省财政厅_省财政厅.txt,1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省交通运输厅_曹光.txt,1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区环境保护厅_详情.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_双门楼宾馆.txt,-1
-data/svm/test/txt/data_svm_test_xml_安徽_省财政厅_李友兰.txt,1
+data/svm/test/txt/data_svm_test_xml_安徽_省财政厅_李友兰.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省外办_依申请公开.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_农业厅_郭建文.txt,1
 data/svm/test/txt/data_svm_test_xml_广西_旅游发展委员会_山西地理.txt,-1
@@ -863,7 +863,7 @@ data/svm/test/txt/data_svm_test_xml_福建_省人社厅_网上调查.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省国资委_粮食集团.txt,-1
 data/svm/test/txt/data_svm_test_xml_江西_省农业厅_政务公开.txt,-1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区发展和改革委员会_发展规划处.txt,-1
-data/svm/test/txt/data_svm_test_xml_贵州_省民宗委_贵州道教.txt,1
+data/svm/test/txt/data_svm_test_xml_贵州_省民宗委_贵州道教.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_环保信用.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_外事侨务办_煤化工产业.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_吴强.txt,1
@@ -913,7 +913,7 @@ data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_服务机构.txt,-1
 data/svm/test/txt/data_svm_test_xml_西藏_自治区水利厅_图片新闻.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省水利厅_刘加海.txt,1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省交通运输厅_风土民俗.txt,-1
-data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_马建国.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_马建国.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省科技厅（省知识产权局）_办事指南.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_农业厅_王进仁.txt,1
 data/svm/test/txt/data_svm_test_xml_重庆_市环保局_派驻机构.txt,-1
@@ -937,7 +937,7 @@ data/svm/test/txt/data_svm_test_xml_贵州_省商务厅_季泓.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省水利厅_林捷.txt,1
 data/svm/test/txt/data_svm_test_xml_贵州_省科技厅（省知识产权局）_雷文蓉.txt,1
 data/svm/test/txt/data_svm_test_xml_重庆_市信访办_肖跃平.txt,1
-data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_朱军.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_朱军.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省交通运输厅_于飞.txt,1
 data/svm/test/txt/data_svm_test_xml_农业部_种植业司_每日要情.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省水利厅_公众参与.txt,-1
@@ -967,15 +967,15 @@ data/svm/test/txt/data_svm_test_xml_山西_农业厅_茹栋梅.txt,1
 data/svm/test/txt/data_svm_test_xml_江西_省国资委_慰问信.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_军属.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_礼宾新闻处.txt,-1
-data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_厅领导.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_厅领导.txt,-1
 data/svm/test/txt/data_svm_test_xml_卫生部_办公厅_健康活动日.txt,-1
-data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_徐高春.txt,1
+data/svm/test/txt/data_svm_test_xml_浙江_省商务厅_徐高春.txt,-1
 data/svm/test/txt/data_svm_test_xml_监察部_驻工业和信息化部纪检组_信访条例.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省外办_在线访谈.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_星级酒店.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省海洋渔业厅_网上调查.txt,-1
 data/svm/test/txt/data_svm_test_xml_重庆_市邮政管理局_公务员法.txt,-1
-data/svm/test/txt/data_svm_test_xml_内蒙古_经济和信息化委员会_影视.txt,-1
+data/svm/test/txt/data_svm_test_xml_内蒙古_经济和信息化委员会_影视.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_规划计划.txt,-1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_防灾减灾.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_专题记者会.txt,-1
@@ -989,7 +989,7 @@ data/svm/test/txt/data_svm_test_xml_青海_省经济和信息化委员会_张立
 data/svm/test/txt/data_svm_test_xml_北京_市民委_民族体育.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省发展和改革委员会_品牌建设.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省水利厅_朱克成.txt,1
-data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_孙佑海.txt,1
+data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_孙佑海.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区环境保护厅_温玉彪.txt,1
 data/svm/test/txt/data_svm_test_xml_河北_﻿省政府办公厅_对外经济.txt,-1
 data/svm/test/txt/data_svm_test_xml_河北_省监察厅_2.txt,-1
@@ -1078,7 +1078,7 @@ data/svm/test/txt/data_svm_test_xml_吉林_省外办_日本境港市.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_吴胜利.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省民宗委_贵州佛教.txt,-1
 data/svm/test/txt/data_svm_test_xml_湖南_湖南省人民政府办公厅_隆回花瑶.txt,-1
-data/svm/test/txt/data_svm_test_xml_广西_外事侨务办_北威州.txt,1
+data/svm/test/txt/data_svm_test_xml_广西_外事侨务办_北威州.txt,-1
 data/svm/test/txt/data_svm_test_xml_国防部_权威发布_护航.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省国资委_王宁生.txt,1
 data/svm/test/txt/data_svm_test_xml_福建_省民政厅_民政风采.txt,-1
@@ -1109,7 +1109,7 @@ data/svm/test/txt/data_svm_test_xml_教育部_办公厅_首页.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区环境保护厅_吕子祥.txt,1
 data/svm/test/txt/data_svm_test_xml_浙江_省交通运输厅_总体概况.txt,-1
 data/svm/test/txt/data_svm_test_xml_山西_旅游发展委员会_山西地理.txt,-1
-data/svm/test/txt/data_svm_test_xml_吉林_省司法厅_公示.txt,1
+data/svm/test/txt/data_svm_test_xml_吉林_省司法厅_公示.txt,-1
 data/svm/test/txt/data_svm_test_xml_江苏_江苏省环境保护厅_国内新闻.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_网上服务.txt,-1
 data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_陈勇.txt,-1
@@ -1122,12 +1122,12 @@ data/svm/test/txt/data_svm_test_xml_吉林_省民政厅_领导简介.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省商务厅_市场秩序处.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_市场宣传处.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省文化厅_政务公开.txt,-1
-data/svm/test/txt/data_svm_test_xml_重庆_市统计局_政策法规.txt,1
+data/svm/test/txt/data_svm_test_xml_重庆_市统计局_政策法规.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省民政厅_辛志华.txt,1
 data/svm/test/txt/data_svm_test_xml_江西_省农业厅_单位简介.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_机构信息.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省林业厅_网上调查.txt,-1
-data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_徐荣.txt,1
+data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_徐荣.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省交通运输厅_交通概况.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省旅游发展委员会_省情介绍.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省民政厅_民政概况.txt,-1
@@ -1152,11 +1152,11 @@ data/svm/test/txt/data_svm_test_xml_广西_农业厅_调查征集.txt,-1
 data/svm/test/txt/data_svm_test_xml_青海_省审计厅_领导简介.txt,1
 data/svm/test/txt/data_svm_test_xml_青海_省文化和新闻出版厅_通知公告.txt,-1
 data/svm/test/txt/data_svm_test_xml_卫生部_办公厅_统计信息.txt,-1
-data/svm/test/txt/data_svm_test_xml_宁夏_自治区教育厅_公众互动.txt,1
+data/svm/test/txt/data_svm_test_xml_宁夏_自治区教育厅_公众互动.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省司法厅_赵金龙.txt,1
 data/svm/test/txt/data_svm_test_xml_江西_省农业厅_表格下载.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省经济和信息化委_宛会东.txt,1
-data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省委党校.txt,1
+data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省委党校.txt,-1
 data/svm/test/txt/data_svm_test_xml_教育部_国际合作与交流司（港澳台办公室）_交流概况.txt,-1
 data/svm/test/txt/data_svm_test_xml_北京_市民防局_政务公开.txt,1
 data/svm/test/txt/data_svm_test_xml_山东_山东省农业厅_在线访谈.txt,-1
@@ -1190,7 +1190,7 @@ data/svm/test/txt/data_svm_test_xml_湖北_﻿湖北省发展和改革委员会_
 data/svm/test/txt/data_svm_test_xml_西藏_自治区水利厅_厅办公室.txt,-1
 data/svm/test/txt/data_svm_test_xml_环保部_科技标准司_卢耀如.txt,-1
 data/svm/test/txt/data_svm_test_xml_福建_省科技厅_更多.txt,-1
-data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_[详情].txt,1
+data/svm/test/txt/data_svm_test_xml_江苏_江苏省人民政府外事办公室_[详情].txt,-1
 data/svm/test/txt/data_svm_test_xml_山东_山东省交通运输厅_交通概况.txt,-1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省监察厅_省档案局.txt,-1
 data/svm/test/txt/data_svm_test_xml_湖南_湖南省人民政府办公厅_株洲市.txt,-1
@@ -1275,7 +1275,7 @@ data/svm/test/txt/data_svm_test_xml_重庆_重庆煤监局_机构职能.txt,-1
 data/svm/test/txt/data_svm_test_xml_广东_省水利厅_珠江流域.txt,-1
 data/svm/test/txt/data_svm_test_xml_新疆_自治区商务厅_领导信箱.txt,-1
 data/svm/test/txt/data_svm_test_xml_天津_天津市人民政府办公厅_关于我们.txt,-1
-data/svm/test/txt/data_svm_test_xml_福建_省人社厅_黄明园.txt,-1
+data/svm/test/txt/data_svm_test_xml_福建_省人社厅_黄明园.txt,1
 data/svm/test/txt/data_svm_test_xml_黑龙江_省发展和改革委员会_养老服务业.txt,-1
 data/svm/test/txt/data_svm_test_xml_贵州_省司法厅_李京强.txt,1
 data/svm/test/txt/data_svm_test_xml_北京_市环保局_首页.txt,-1
